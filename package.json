@@ -1,0 +1,27 @@
+{
+  "name": "aglet",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/my-element.es.js",
+  "exports": {
+    ".": "./dist/my-element.es.js"
+  },
+  "types": "types/my-element.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "lit": "^2.3.1"
+  },
+  "devDependencies": {
+    "tailwind-lit-rollup-plugin": "github:jeremyc2/tailwind-lit-rollup-plugin",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
