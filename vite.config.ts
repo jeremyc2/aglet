@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [tailwindLitPlugin()],
   build: {
     lib: {
-      entry: "src/my-element.ts",
+      entry: "src/index.ts",
       formats: ["es"],
     },
     rollupOptions: {

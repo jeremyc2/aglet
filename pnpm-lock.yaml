@@ -3,14 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   lit: ^2.3.1
   tailwind-lit-rollup-plugin: github:jeremyc2/tailwind-lit-rollup-plugin
-  typescript: ^4.6.4
-  vite: ^3.1.0
+  typescript: ^4.8.3
+  vite: ^3.1.2
 
 dependencies:
   lit: 2.3.1
 
 devDependencies:
-  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/995e27f78e046b11a8c2847d2d040663640423d7
+  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/da38f01ba410b62541800b2451a4fe3bf9c63273
   typescript: 4.8.3
   vite: 3.1.2
 
@@ -1120,8 +1120,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  github.com/jeremyc2/tailwind-lit-rollup-plugin/995e27f78e046b11a8c2847d2d040663640423d7:
-    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/995e27f78e046b11a8c2847d2d040663640423d7}
+  github.com/jeremyc2/tailwind-lit-rollup-plugin/da38f01ba410b62541800b2451a4fe3bf9c63273:
+    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/da38f01ba410b62541800b2451a4fe3bf9c63273}
     name: tailwind-lit-rollup-plugin
     version: 1.0.0
     dependencies:
