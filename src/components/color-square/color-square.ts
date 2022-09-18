@@ -1,7 +1,7 @@
 import { LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
-@customElement("sl-breadcrumb-item")
+@customElement("ag-color-square")
 export class AGColorSquare extends LitElement {}
 
 declare global {
