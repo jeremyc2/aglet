@@ -14,18 +14,20 @@ export class AGColorSquare extends LitElement {
 
   static styles = css`
     @tailwind utilities;
+
+    :host {
+      @apply flex flex-col;
+    }
   `;
 
   render() {
-    return html`<div>
-      <div
+    return html`<div
         class="rounded shadow bg-gray-3 cursor-copy h-24 hover:scale-90"
       ></div>
       <div class="relative">
         <div></div>
         <div class="text-gray-500 font-extralight"></div>
-      </div>
-    </div>`;
+      </div>`;
   }
 }
 

@@ -24,6 +24,6 @@
   "devDependencies": {
     "tailwind-lit-rollup-plugin": "github:jeremyc2/tailwind-lit-rollup-plugin",
     "typescript": "^4.8.3",
-    "vite": "^3.1.2"
+    "vite": "^3.1.3"
   }
 }
