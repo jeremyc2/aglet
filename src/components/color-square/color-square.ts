@@ -13,6 +13,7 @@ export class AGColorSquare extends LitElement {
   format: string;
 
   static styles = css`
+    @tailwind base;
     @tailwind utilities;
 
     :host {
