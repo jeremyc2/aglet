@@ -1,8 +1,11 @@
 import { css, html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 
 @customElement("ag-color-section")
 export class AGColorSection extends LitElement {
+  @property()
+  name: string;
+
   static styles = css`
     @tailwind base;
     @tailwind utilities;
