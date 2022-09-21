@@ -17,7 +17,7 @@ export class AGColorSquare extends LitElement {
     @tailwind utilities;
 
     :host {
-      @apply flex flex-col;
+      @apply flex flex-col max-w-[12rem];
     }
   `;
 

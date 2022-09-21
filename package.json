@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "serve dist -C -l 56013"
+    "serve": "pnpm build && serve dist -C -l 56013"
   },
   "dependencies": {
     "lit": "^2.3.1",
