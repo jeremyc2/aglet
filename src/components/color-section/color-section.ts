@@ -6,10 +6,6 @@ export class AGColorSection extends LitElement {
   static styles = css`
     @tailwind base;
     @tailwind utilities;
-
-    :host {
-      @apply flex flex-col max-w-[12rem];
-    }
   `;
 
   render() {
