@@ -18,6 +18,7 @@
     "serve": "concurrently --kill-others \"pnpm build --watch\" \"serve dist -C -l 56013\""
   },
   "dependencies": {
+    "colord": "^2.9.3",
     "lit": "^2.3.1",
     "serve": "^14.0.1"
   },
