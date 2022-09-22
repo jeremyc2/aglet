@@ -12,7 +12,7 @@ dependencies:
   serve: 14.0.1
 
 devDependencies:
-  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/2991292306630e55d9e0de46fb7a6b431f387dc2
+  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/426b7b176de0e4c1470305e652f2a3dffa4b8a5c
   typescript: 4.8.3
   vite: 3.1.3
 
@@ -439,7 +439,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001409
-      electron-to-chromium: 1.4.256
+      electron-to-chromium: 1.4.257
       node-releases: 2.0.6
       update-browserslist-db: 1.0.9_browserslist@4.21.4
     dev: true
@@ -647,8 +647,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
 
-  /electron-to-chromium/1.4.256:
-    resolution: {integrity: sha512-x+JnqyluoJv8I0U9gVe+Sk2st8vF0CzMt78SXxuoWCooLLY2k5VerIBdpvG7ql6GKI4dzNnPjmqgDJ76EdaAKw==}
+  /electron-to-chromium/1.4.257:
+    resolution: {integrity: sha512-C65sIwHqNnPC2ADMfse/jWTtmhZMII+x6ADI9gENzrOiI7BpxmfKFE84WkIEl5wEg+7+SfIkwChDlsd1Erju2A==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -1689,8 +1689,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  github.com/jeremyc2/tailwind-lit-rollup-plugin/2991292306630e55d9e0de46fb7a6b431f387dc2:
-    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/2991292306630e55d9e0de46fb7a6b431f387dc2}
+  github.com/jeremyc2/tailwind-lit-rollup-plugin/426b7b176de0e4c1470305e652f2a3dffa4b8a5c:
+    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/426b7b176de0e4c1470305e652f2a3dffa4b8a5c}
     name: tailwind-lit-rollup-plugin
     version: 1.0.0
     dependencies:
