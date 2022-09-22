@@ -15,13 +15,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "pnpm build && serve dist -C -l 56013"
+    "serve": "concurrently --kill-others \"pnpm build --watch\" \"serve dist -C -l 56013\""
   },
   "dependencies": {
     "lit": "^2.3.1",
     "serve": "^14.0.1"
   },
   "devDependencies": {
+    "concurrently": "^7.4.0",
     "tailwind-lit-rollup-plugin": "github:jeremyc2/tailwind-lit-rollup-plugin",
     "typescript": "^4.8.3",
     "vite": "^3.1.3"
