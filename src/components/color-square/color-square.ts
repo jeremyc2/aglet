@@ -1,6 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { colord } from "colord";
+import baseStyles from "../../base-style";
 
 function convertColorCode(colorCode: string, format: "hex" | "rgb" | "hsl") {
   if (format === "hex") {
@@ -26,14 +27,16 @@ export class AGColorSquare extends LitElement {
   @property()
   format: "hex" | "rgb" | "hsl";
 
-  static styles = css`
-    @tailwind base;
-    @tailwind utilities;
+  static styles = [
+    baseStyles,
+    css`
+      @tailwind utilities;
 
-    :host {
-      @apply flex flex-col max-w-[12rem];
-    }
-  `;
+      :host {
+        @apply flex flex-col max-w-[12rem];
+      }
+    `,
+  ];
 
   render() {
     return html`<div

@@ -1,15 +1,18 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import baseStyles from "../../base-style";
 
 @customElement("ag-color-section")
 export class AGColorSection extends LitElement {
   @property()
   name: string;
 
-  static styles = css`
-    @tailwind base;
-    @tailwind utilities;
-  `;
+  static styles = [
+    baseStyles,
+    css`
+      @tailwind utilities;
+    `,
+  ];
 
   render() {
     return html`<div class="text-2xl font-semibold mb-2"></div>
