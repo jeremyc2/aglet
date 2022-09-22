@@ -12,7 +12,7 @@ dependencies:
   serve: 14.0.1
 
 devDependencies:
-  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/2bed28577ade00222b792fdf7dfcc079ee6a453c
+  tailwind-lit-rollup-plugin: github.com/jeremyc2/tailwind-lit-rollup-plugin/2991292306630e55d9e0de46fb7a6b431f387dc2
   typescript: 4.8.3
   vite: 3.1.3
 
@@ -438,8 +438,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001407
-      electron-to-chromium: 1.4.255
+      caniuse-lite: 1.0.30001409
+      electron-to-chromium: 1.4.256
       node-releases: 2.0.6
       update-browserslist-db: 1.0.9_browserslist@4.21.4
     dev: true
@@ -459,8 +459,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
-  /caniuse-lite/1.0.30001407:
-    resolution: {integrity: sha512-4ydV+t4P7X3zH83fQWNDX/mQEzYomossfpViCOx9zHBSMV+rIe3LFqglHHtVyvNl1FhTNxPxs3jei82iqOW04w==}
+  /caniuse-lite/1.0.30001409:
+    resolution: {integrity: sha512-V0mnJ5dwarmhYv8/MzhJ//aW68UpvnQBXv8lJ2QUsvn2pHcmAuNtu8hQEDz37XnA1iE+lRR9CIfGWWpgJ5QedQ==}
     dev: true
 
   /chalk-template/0.4.0:
@@ -647,8 +647,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
 
-  /electron-to-chromium/1.4.255:
-    resolution: {integrity: sha512-H+mFNKow6gi2P5Gi2d1Fvd3TUEJlB9CF7zYaIV9T83BE3wP1xZ0mRPbNTm0KUjyd1QiVy7iKXuIcjlDtBQMiAQ==}
+  /electron-to-chromium/1.4.256:
+    resolution: {integrity: sha512-x+JnqyluoJv8I0U9gVe+Sk2st8vF0CzMt78SXxuoWCooLLY2k5VerIBdpvG7ql6GKI4dzNnPjmqgDJ76EdaAKw==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -1689,8 +1689,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  github.com/jeremyc2/tailwind-lit-rollup-plugin/2bed28577ade00222b792fdf7dfcc079ee6a453c:
-    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/2bed28577ade00222b792fdf7dfcc079ee6a453c}
+  github.com/jeremyc2/tailwind-lit-rollup-plugin/2991292306630e55d9e0de46fb7a6b431f387dc2:
+    resolution: {tarball: https://codeload.github.com/jeremyc2/tailwind-lit-rollup-plugin/tar.gz/2991292306630e55d9e0de46fb7a6b431f387dc2}
     name: tailwind-lit-rollup-plugin
     version: 1.0.0
     dependencies:
