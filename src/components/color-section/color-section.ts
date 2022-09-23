@@ -15,7 +15,7 @@ export class AGColorSection extends LitElement {
   ];
 
   render() {
-    return html`<div class="text-2xl font-semibold mb-2"></div>
+    return html`<div class="text-2xl font-semibold mb-2">${this.name}</div>
       <div
         class="grid gap-x-1 gap-y-5"
         style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
