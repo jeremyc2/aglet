@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const I = window, et = I.ShadowRoot && (I.ShadyCSS === void 0 || I.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, it = Symbol(), st = /* @__PURE__ */ new WeakMap();
+const j = window, et = j.ShadowRoot && (j.ShadyCSS === void 0 || j.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, it = Symbol(), st = /* @__PURE__ */ new WeakMap();
 class xt {
   constructor(t, e, r) {
     if (this._$cssResult$ = !0, r !== it)
@@ -34,7 +34,7 @@ const Mt = (i) => new xt(typeof i == "string" ? i : i + "", void 0, it), rt = (i
   return new xt(e, i, it);
 }, Tt = (i, t) => {
   et ? i.adoptedStyleSheets = t.map((e) => e instanceof CSSStyleSheet ? e : e.styleSheet) : t.forEach((e) => {
-    const r = document.createElement("style"), s = I.litNonce;
+    const r = document.createElement("style"), s = j.litNonce;
     s !== void 0 && r.setAttribute("nonce", s), r.textContent = e.cssText, i.appendChild(r);
   });
 }, ot = et ? (i) => i : (i) => i instanceof CSSStyleSheet ? ((t) => {
@@ -49,11 +49,11 @@ const Mt = (i) => new xt(typeof i == "string" ? i : i + "", void 0, it), rt = (i
  * SPDX-License-Identifier: BSD-3-Clause
  */
 var q;
-const j = window, nt = j.trustedTypes, It = nt ? nt.emptyScript : "", at = j.reactiveElementPolyfillSupport, tt = {
+const I = window, nt = I.trustedTypes, jt = nt ? nt.emptyScript : "", at = I.reactiveElementPolyfillSupport, tt = {
   toAttribute(i, t) {
     switch (t) {
       case Boolean:
-        i = i ? It : null;
+        i = i ? jt : null;
         break;
       case Object:
       case Array:
@@ -277,7 +277,7 @@ $.finalized = !0, $.elementProperties = /* @__PURE__ */ new Map(), $.elementStyl
   mode: "open"
 }, at == null || at({
   ReactiveElement: $
-}), ((q = j.reactiveElementVersions) !== null && q !== void 0 ? q : j.reactiveElementVersions = []).push("1.4.1");
+}), ((q = I.reactiveElementVersions) !== null && q !== void 0 ? q : I.reactiveElementVersions = []).push("1.4.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -286,7 +286,7 @@ $.finalized = !0, $.elementProperties = /* @__PURE__ */ new Map(), $.elementStyl
 var K;
 const L = window, x = L.trustedTypes, lt = x ? x.createPolicy("lit-html", {
   createHTML: (i) => i
-}) : void 0, w = `lit$${(Math.random() + "").slice(9)}$`, Et = "?" + w, jt = `<${Et}>`, S = document, z = (i = "") => S.createComment(i), U = (i) => i === null || typeof i != "object" && typeof i != "function", kt = Array.isArray, Lt = (i) => kt(i) || typeof (i == null ? void 0 : i[Symbol.iterator]) == "function", N = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ht = /-->/g, dt = />/g, y = RegExp(`>|[ 	
+}) : void 0, w = `lit$${(Math.random() + "").slice(9)}$`, Et = "?" + w, It = `<${Et}>`, S = document, z = (i = "") => S.createComment(i), U = (i) => i === null || typeof i != "object" && typeof i != "function", kt = Array.isArray, Lt = (i) => kt(i) || typeof (i == null ? void 0 : i[Symbol.iterator]) == "function", N = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ht = /-->/g, dt = />/g, y = RegExp(`>|[ 	
 \f\r](?:([^\\s"'>=/]+)([ 	
 \f\r]*=[ 	
 \f\r]*(?:[^ 	
@@ -312,7 +312,7 @@ const L = window, x = L.trustedTypes, lt = x ? x.createPolicy("lit-html", {
     for (; b < l.length && (n.lastIndex = b, d = n.exec(l), d !== null); )
       b = n.lastIndex, n === N ? d[1] === "!--" ? n = ht : d[1] !== void 0 ? n = dt : d[2] !== void 0 ? (Ct.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = y) : d[3] !== void 0 && (n = y) : n === y ? d[0] === ">" ? (n = s != null ? s : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, v = d[1], n = d[3] === void 0 ? y : d[3] === '"' ? ut : ct) : n === ut || n === ct ? n = y : n === ht || n === dt ? n = N : (n = y, s = void 0);
     const O = n === y && i[a + 1].startsWith("/>") ? " " : "";
-    o += n === N ? l + jt : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + w + O) : l + w + (c === -2 ? (r.push(void 0), a) : O);
+    o += n === N ? l + It : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + w + O) : l + w + (c === -2 ? (r.push(void 0), a) : O);
   }
   const h = o + (i[e] || "<?>") + (t === 2 ? "</svg>" : "");
   if (!Array.isArray(i) || !i.hasOwnProperty("raw"))
@@ -831,7 +831,7 @@ const Rt = rt`/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
 3. Use a more readable tab size.
 4. Use the user's configured \`sans\` font-family by default.
 */
-html {
+:host {
   line-height: 1.5;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -842,16 +842,6 @@ html {
   /* 3 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
-}
-/*
-1. Remove the margin in all browsers.
-2. Inherit line-height from \`html\` so users can set them as a class directly on the \`html\` element.
-*/
-body {
-  margin: 0;
-  /* 1 */
-  line-height: inherit;
-  /* 2 */
 }
 /*
 1. Add the correct height in Firefox.
