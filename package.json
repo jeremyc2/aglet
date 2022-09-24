@@ -1,7 +1,7 @@
 {
   "name": "aglet",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/aglet.js",
   "exports": {
@@ -19,11 +19,11 @@
   },
   "dependencies": {
     "colord": "^2.9.3",
-    "lit": "^2.3.1",
-    "serve": "^14.0.1"
+    "lit": "^2.3.1"
   },
   "devDependencies": {
     "concurrently": "^7.4.0",
+    "serve": "^14.0.1",
     "tailwind-lit-rollup-plugin": "github:jeremyc2/tailwind-lit-rollup-plugin",
     "typescript": "^4.8.3",
     "vite": "^3.1.3"
