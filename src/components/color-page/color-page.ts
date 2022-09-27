@@ -32,7 +32,7 @@ export class AGColorPage extends LitElement {
   render() {
     return map(Object.entries(this.colorMap), ([groupName, colors]) => {
       return html`<div>
-        <div class="text-2xl font-semibold mb-2">${groupName}</div>
+        <div class="text-2xl capitalize font-semibold mb-2">${groupName}</div>
         <div
           class="grid gap-x-1 gap-y-5"
           style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
