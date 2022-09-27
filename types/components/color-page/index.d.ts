@@ -1,1 +1,1 @@
-export { AGColorSection } from "./color-page";
+export { AGColorPage } from "./color-page";

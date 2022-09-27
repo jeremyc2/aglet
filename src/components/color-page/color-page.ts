@@ -9,8 +9,8 @@ interface ColorMap {
   };
 }
 
-@customElement("ag-color-section")
-export class AGColorSection extends LitElement {
+@customElement("ag-color-page")
+export class AGColorPage extends LitElement {
   private colorMap: ColorMap = {};
 
   loadColorMap(colorMap: ColorMap) {
@@ -22,6 +22,10 @@ export class AGColorSection extends LitElement {
     baseStyles,
     css`
       @tailwind utilities;
+
+      :host {
+        @apply flex flex-col gap-7;
+      }
     `,
   ];
 
@@ -48,6 +52,6 @@ export class AGColorSection extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ag-color-section": AGColorSection;
+    "ag-color-page": AGColorPage;
   }
 }

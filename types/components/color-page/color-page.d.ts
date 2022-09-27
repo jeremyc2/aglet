@@ -4,7 +4,7 @@ interface ColorMap {
         [colorLevel: string | number]: string;
     };
 }
-export declare class AGColorSection extends LitElement {
+export declare class AGColorPage extends LitElement {
     private colorMap;
     loadColorMap(colorMap: ColorMap): void;
     static styles: import("lit").CSSResult[];
@@ -12,7 +12,7 @@ export declare class AGColorSection extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        "ag-color-section": AGColorSection;
+        "ag-color-page": AGColorPage;
     }
 }
 export {};
