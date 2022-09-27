@@ -1385,7 +1385,7 @@ let tt = class extends x {
           style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
         >
           ${St(Object.entries(t), ([e, r]) => Q`<ag-color-square
-              name="${`${i}-${e}`}"
+              name="${`${i} ${e}`}"
               color="${r}"
               format="hex"
             ></ag-color-square>`)}

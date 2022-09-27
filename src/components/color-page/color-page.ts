@@ -39,7 +39,7 @@ export class AGColorPage extends LitElement {
         >
           ${map(Object.entries(colors), ([colorLevel, colorCode]) => {
             return html`<ag-color-square
-              name="${`${groupName}-${colorLevel}`}"
+              name="${`${groupName} ${colorLevel}`}"
               color="${colorCode}"
               format="hex"
             ></ag-color-square>`;
