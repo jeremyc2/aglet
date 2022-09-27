@@ -1,2 +1,2 @@
 export * from "./color-square";
-export * from "./color-section";
+export * from "./color-page";
