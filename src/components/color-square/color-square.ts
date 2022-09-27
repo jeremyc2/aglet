@@ -42,15 +42,14 @@ export class AGColorSquare extends LitElement {
     return html`<div class="rounded h-24 group">
         <div
           class="rounded shadow cursor-copy h-24 group-hover:scale-90"
-          style="background-color: ${convertColorCode(
-            this.color,
-            this.format
-          )};"
+          style="background-color: ${this.color};"
         ></div>
       </div>
       <div class="relative">
         <div>${this.name}</div>
-        <div class="text-gray-500 font-extralight"></div>
+        <div class="text-gray-500 font-extralight">
+          ${convertColorCode(this.color, this.format)}
+        </div>
       </div>`;
   }
 }
