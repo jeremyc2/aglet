@@ -35,6 +35,12 @@ export class AGColorSquare extends LitElement {
       :host {
         @apply flex flex-col max-w-[12rem];
       }
+
+      .copy-overlay::after {
+        @apply absolute bg-white text-green-700
+        flex justify-center items-center
+        inset-0 content-['Copied!'];
+      }
     `,
   ];
 
