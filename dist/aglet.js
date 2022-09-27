@@ -310,9 +310,15 @@ const L = window, x = L.trustedTypes, ht = x ? x.createPolicy("lit-html", {
     const l = i[a];
     let v, d, c = -1, b = 0;
     for (; b < l.length && (n.lastIndex = b, d = n.exec(l), d !== null); )
+<<<<<<< HEAD
       b = n.lastIndex, n === N ? d[1] === "!--" ? n = dt : d[1] !== void 0 ? n = ct : d[2] !== void 0 ? (Pt.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = y) : d[3] !== void 0 && (n = y) : n === y ? d[0] === ">" ? (n = s != null ? s : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, v = d[1], n = d[3] === void 0 ? y : d[3] === '"' ? pt : ut) : n === pt || n === ut ? n = y : n === dt || n === ct ? n = N : (n = y, s = void 0);
     const R = n === y && i[a + 1].startsWith("/>") ? " " : "";
     o += n === N ? l + It : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + $ + R) : l + $ + (c === -2 ? (r.push(void 0), a) : R);
+=======
+      b = n.lastIndex, n === N ? d[1] === "!--" ? n = ht : d[1] !== void 0 ? n = dt : d[2] !== void 0 ? (Ct.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = y) : d[3] !== void 0 && (n = y) : n === y ? d[0] === ">" ? (n = s != null ? s : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, v = d[1], n = d[3] === void 0 ? y : d[3] === '"' ? ut : ct) : n === ut || n === ct ? n = y : n === ht || n === dt ? n = N : (n = y, s = void 0);
+    const O = n === y && i[a + 1].startsWith("/>") ? " " : "";
+    o += n === N ? l + It : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + w + O) : l + w + (c === -2 ? (r.push(void 0), a) : O);
+>>>>>>> 184b6768177dad4fe3de61fc0131c5ec68155b9f
   }
   const h = o + (i[e] || "<?>") + (t === 2 ? "</svg>" : "");
   if (!Array.isArray(i) || !i.hasOwnProperty("raw"))
@@ -366,7 +372,7 @@ class H {
                 type: 2,
                 index: ++o
               });
-            s.append(d[c], U());
+            s.append(d[c], z());
           }
         }
       } else if (s.nodeType === 8)
@@ -391,13 +397,13 @@ class H {
     return r.innerHTML = t, r;
   }
 }
-function C(i, t, e = i, r) {
+function k(i, t, e = i, r) {
   var s, o, n, h;
   if (t === E)
     return t;
   let a = r !== void 0 ? (s = e._$Cl) === null || s === void 0 ? void 0 : s[r] : e._$Cu;
-  const l = z(t) ? void 0 : t._$litDirective$;
-  return (a == null ? void 0 : a.constructor) !== l && ((o = a == null ? void 0 : a._$AO) === null || o === void 0 || o.call(a, !1), l === void 0 ? a = void 0 : (a = new l(i), a._$AT(i, e, r)), r !== void 0 ? ((n = (h = e)._$Cl) !== null && n !== void 0 ? n : h._$Cl = [])[r] = a : e._$Cu = a), a !== void 0 && (t = C(i, a._$AS(i, t.values), a, r)), t;
+  const l = U(t) ? void 0 : t._$litDirective$;
+  return (a == null ? void 0 : a.constructor) !== l && ((o = a == null ? void 0 : a._$AO) === null || o === void 0 || o.call(a, !1), l === void 0 ? a = void 0 : (a = new l(i), a._$AT(i, e, r)), r !== void 0 ? ((n = (h = e)._$Cl) !== null && n !== void 0 ? n : h._$Cl = [])[r] = a : e._$Cu = a), a !== void 0 && (t = k(i, a._$AS(i, t.values), a, r)), t;
 }
 class qt {
   constructor(t, e) {
@@ -455,7 +461,7 @@ class O {
     return this._$AB;
   }
   _$AI(t, e = this) {
-    t = C(this, t, e), z(t) ? t === p || t == null || t === "" ? (this._$AH !== p && this._$AR(), this._$AH = p) : t !== this._$AH && t !== E && this.$(t) : t._$litType$ !== void 0 ? this.T(t) : t.nodeType !== void 0 ? this.k(t) : Lt(t) ? this.O(t) : this.$(t);
+    t = k(this, t, e), U(t) ? t === p || t == null || t === "" ? (this._$AH !== p && this._$AR(), this._$AH = p) : t !== this._$AH && t !== E && this.$(t) : t._$litType$ !== void 0 ? this.T(t) : t.nodeType !== void 0 ? this.k(t) : Lt(t) ? this.O(t) : this.$(t);
   }
   S(t, e = this._$AB) {
     return this._$AA.parentNode.insertBefore(t, e);
@@ -464,7 +470,7 @@ class O {
     this._$AH !== t && (this._$AR(), this._$AH = this.S(t));
   }
   $(t) {
-    this._$AH !== p && z(this._$AH) ? this._$AA.nextSibling.data = t : this.k(S.createTextNode(t)), this._$AH = t;
+    this._$AH !== p && U(this._$AH) ? this._$AA.nextSibling.data = t : this.k(S.createTextNode(t)), this._$AH = t;
   }
   T(t) {
     var e;
@@ -517,12 +523,12 @@ class D {
     const o = this.strings;
     let n = !1;
     if (o === void 0)
-      t = C(this, t, e, 0), n = !z(t) || t !== this._$AH && t !== E, n && (this._$AH = t);
+      t = k(this, t, e, 0), n = !U(t) || t !== this._$AH && t !== E, n && (this._$AH = t);
     else {
       const h = t;
       let a, l;
       for (t = o[0], a = 0; a < o.length - 1; a++)
-        l = C(this, h[r + a], e, a), l === E && (l = this._$AH[a]), n || (n = !z(l) || l !== this._$AH[a]), l === p ? t = p : t !== p && (t += (l != null ? l : "") + o[a + 1]), this._$AH[a] = l;
+        l = k(this, h[r + a], e, a), l === E && (l = this._$AH[a]), n || (n = !U(l) || l !== this._$AH[a]), l === p ? t = p : t !== p && (t += (l != null ? l : "") + o[a + 1]), this._$AH[a] = l;
     }
     n && !s && this.P(t);
   }
@@ -553,7 +559,7 @@ class Zt extends D {
   }
   _$AI(t, e = this) {
     var r;
-    if ((t = (r = C(this, t, e, 0)) !== null && r !== void 0 ? r : p) === E)
+    if ((t = (r = k(this, t, e, 0)) !== null && r !== void 0 ? r : p) === E)
       return;
     const s = this._$AH, o = t === p && s !== p || t.capture !== s.capture || t.once !== s.once || t.passive !== s.passive, n = t !== p && (s === p || o);
     o && this.element.removeEventListener(this.name, this, s), n && this.element.addEventListener(this.name, this, t), this._$AH = t;
@@ -571,7 +577,7 @@ class Gt {
     return this._$AM._$AU;
   }
   _$AI(t) {
-    C(this, t);
+    k(this, t);
   }
 }
 const gt = L.litHtmlPolyfillSupport;
@@ -678,7 +684,7 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   return t === void 0 && (t = 0), e === void 0 && (e = 1), i > e ? e : i > t ? i : t;
 }, zt = function(i) {
   return (i = isFinite(i) ? i % 360 : 0) > 0 ? i : i + 360;
-}, vt = function(i) {
+}, bt = function(i) {
   return { r: g(i.r, 0, 255), g: g(i.g, 0, 255), b: g(i.b, 0, 255), a: g(i.a) };
 }, G = function(i) {
   return { r: u(i.r), g: u(i.g), b: u(i.b), a: u(i.a, 3) };
@@ -693,6 +699,11 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   t = t / 360 * 6, e /= 100, r /= 100;
   var o = Math.floor(t), n = r * (1 - e), h = r * (1 - (t - o) * e), a = r * (1 - (1 - t + o) * e), l = o % 6;
   return { r: 255 * [r, h, n, n, a, r][l], g: 255 * [a, r, r, h, n, n][l], b: 255 * [n, n, a, r, r, h][l], a: s };
+<<<<<<< HEAD
+=======
+}, vt = function(i) {
+  return { h: zt(i.h), s: g(i.s, 0, 100), l: g(i.l, 0, 100), a: g(i.a) };
+>>>>>>> 184b6768177dad4fe3de61fc0131c5ec68155b9f
 }, mt = function(i) {
   return { h: zt(i.h), s: g(i.s, 0, 100), l: g(i.l, 0, 100), a: g(i.a) };
 }, $t = function(i) {
@@ -703,21 +714,26 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }, P = function(i) {
   return { h: (t = Ht(i)).h, s: (s = (200 - (e = t.s)) * (r = t.v) / 100) > 0 && s < 200 ? e * r / 100 / (s <= 100 ? s : 200 - s) * 100 : 0, l: s / 2, a: t.a };
   var t, e, r, s;
-}, Qt = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, te = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, ee = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, ie = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, wt = { string: [[function(i) {
+}, Qt = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, te = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, ee = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, ie = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, yt = { string: [[function(i) {
   var t = Yt.exec(i);
   return t ? (i = t[1]).length <= 4 ? { r: parseInt(i[0] + i[0], 16), g: parseInt(i[1] + i[1], 16), b: parseInt(i[2] + i[2], 16), a: i.length === 4 ? u(parseInt(i[3] + i[3], 16) / 255, 2) : 1 } : i.length === 6 || i.length === 8 ? { r: parseInt(i.substr(0, 2), 16), g: parseInt(i.substr(2, 2), 16), b: parseInt(i.substr(4, 2), 16), a: i.length === 8 ? u(parseInt(i.substr(6, 2), 16) / 255, 2) : 1 } : null : null;
 }, "hex"], [function(i) {
   var t = ee.exec(i) || ie.exec(i);
-  return t ? t[2] !== t[4] || t[4] !== t[6] ? null : vt({ r: Number(t[1]) / (t[2] ? 100 / 255 : 1), g: Number(t[3]) / (t[4] ? 100 / 255 : 1), b: Number(t[5]) / (t[6] ? 100 / 255 : 1), a: t[7] === void 0 ? 1 : Number(t[7]) / (t[8] ? 100 : 1) }) : null;
+  return t ? t[2] !== t[4] || t[4] !== t[6] ? null : bt({ r: Number(t[1]) / (t[2] ? 100 / 255 : 1), g: Number(t[3]) / (t[4] ? 100 / 255 : 1), b: Number(t[5]) / (t[6] ? 100 / 255 : 1), a: t[7] === void 0 ? 1 : Number(t[7]) / (t[8] ? 100 : 1) }) : null;
 }, "rgb"], [function(i) {
   var t = Qt.exec(i) || te.exec(i);
   if (!t)
     return null;
+<<<<<<< HEAD
   var e, r, s = mt({ h: (e = t[1], r = t[2], r === void 0 && (r = "deg"), Number(e) * (Xt[r] || 1)), s: Number(t[3]), l: Number(t[4]), a: t[5] === void 0 ? 1 : Number(t[5]) / (t[6] ? 100 : 1) });
   return yt(s);
+=======
+  var e, r, s = vt({ h: (e = t[1], r = t[2], r === void 0 && (r = "deg"), Number(e) * (Xt[r] || 1)), s: Number(t[3]), l: Number(t[4]), a: t[5] === void 0 ? 1 : Number(t[5]) / (t[6] ? 100 : 1) });
+  return wt(s);
+>>>>>>> 184b6768177dad4fe3de61fc0131c5ec68155b9f
 }, "hsl"]], object: [[function(i) {
   var t = i.r, e = i.g, r = i.b, s = i.a, o = s === void 0 ? 1 : s;
-  return m(t) && m(e) && m(r) ? vt({ r: Number(t), g: Number(e), b: Number(r), a: Number(o) }) : null;
+  return m(t) && m(e) && m(r) ? bt({ r: Number(t), g: Number(e), b: Number(r), a: Number(o) }) : null;
 }, "rgb"], [function(i) {
   var t = i.h, e = i.s, r = i.l, s = i.a, o = s === void 0 ? 1 : s;
   if (!m(t) || !m(e) || !m(r))
@@ -804,19 +820,22 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }(), f = function(i) {
   return i instanceof xt ? i : new xt(i);
 };
-const Rt = rt`/*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
-*//*
+const Rt = rt`/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
+/*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 *,
 ::before,
 ::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: #e5e7eb; /* 2 */
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
 }
 ::before,
 ::after {
@@ -828,20 +847,17 @@ const Rt = rt`/*
 3. Use a more readable tab size.
 4. Use the user's configured \`sans\` font-family by default.
 */
-html {
-  line-height: 1.5; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -moz-tab-size: 4; /* 3 */
-  tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
-}
-/*
-1. Remove the margin in all browsers.
-2. Inherit line-height from \`html\` so users can set them as a class directly on the \`html\` element.
-*/
-body {
-  margin: 0; /* 1 */
-  line-height: inherit; /* 2 */
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
 }
 /*
 1. Add the correct height in Firefox.
@@ -849,15 +865,19 @@ body {
 3. Ensure horizontal rules are visible by default.
 */
 hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
-  border-top-width: 1px; /* 3 */
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
 }
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 abbr:where([title]) {
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 /*
 Remove the default font size and weight for headings.
@@ -893,8 +913,10 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 /*
 Add the correct font size in all browsers.
@@ -924,9 +946,12 @@ sup {
 3. Remove gaps between table borders by default.
 */
 table {
-  text-indent: 0; /* 1 */
-  border-color: inherit; /* 2 */
-  border-collapse: collapse; /* 3 */
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
 }
 /*
 1. Change the font styles in all browsers.
@@ -938,13 +963,20 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  font-weight: inherit; /* 1 */
-  line-height: inherit; /* 1 */
-  color: inherit; /* 1 */
-  margin: 0; /* 2 */
-  padding: 0; /* 3 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
 }
 /*
 Remove the inheritance of text transform in Edge and Firefox.
@@ -961,9 +993,12 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button; /* 1 */
-  background-color: transparent; /* 2 */
-  background-image: none; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
 }
 /*
 Use the modern Firefox focus style for all focusable elements.
@@ -995,8 +1030,10 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 [type='search'] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 /*
 Remove the inner padding in Chrome and Safari on macOS.
@@ -1009,8 +1046,10 @@ Remove the inner padding in Chrome and Safari on macOS.
 2. Change font properties to \`inherit\` in Safari.
 */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 /*
 Add the correct display in Chrome and Safari.
@@ -1062,8 +1101,10 @@ textarea {
 */
 input::placeholder,
 textarea::placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
 }
 /*
 Set the default cursor for buttons.
@@ -1091,8 +1132,10 @@ audio,
 iframe,
 embed,
 object {
-  display: block; /* 1 */
-  vertical-align: middle; /* 2 */
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
 }
 /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
@@ -1103,6 +1146,52 @@ video {
   height: auto;
 }
 *, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+::-webkit-backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -1194,23 +1283,6 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-  /* From Tailwind Base, but refactored for Lit */
-  /*
-    1. Use a consistent sensible line-height in all browsers.
-    2. Prevent adjustments of font size after orientation changes in iOS.
-    3. Use a more readable tab size.
-    4. Use the user's configured \`sans\` font-family by default.
-  */
-  :host {
-    line-height: 1.5; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    -moz-tab-size: 4; /* 3 */
-    tab-size: 4; /* 3 */
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji"; /* 4 */
-  }
 `;
 var se = Object.defineProperty, oe = Object.getOwnPropertyDescriptor, B = (i, t, e, r) => {
   for (var s = r > 1 ? void 0 : r ? oe(t, e) : t, o = i.length - 1, n; o >= 0; o--)
@@ -1226,7 +1298,7 @@ function ne(i, t) {
     return f(i).toHslString();
   throw "Unsupported Color Format";
 }
-let k = class extends A {
+let C = class extends A {
   render() {
     return Q`<div class="rounded h-24 group">
         <div
@@ -1240,7 +1312,7 @@ let k = class extends A {
       </div>`;
   }
 };
-k.styles = [Rt, rt`.relative {
+C.styles = [Rt, rt`.relative {
     position: relative
 }
 .h-24 {
