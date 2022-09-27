@@ -300,7 +300,7 @@ const L = window, x = L.trustedTypes, ht = x ? x.createPolicy("lit-html", {
   let n = o._$litPart$;
   if (n === void 0) {
     const h = (s = e == null ? void 0 : e.renderBefore) !== null && s !== void 0 ? s : null;
-    o._$litPart$ = n = new O(t.insertBefore(U(), h), h, void 0, e != null ? e : {});
+    o._$litPart$ = n = new M(t.insertBefore(U(), h), h, void 0, e != null ? e : {});
   }
   return n._$AI(i), n;
 }, _ = S.createTreeWalker(S, 129, null, !1), Ft = (i, t) => {
@@ -311,8 +311,8 @@ const L = window, x = L.trustedTypes, ht = x ? x.createPolicy("lit-html", {
     let v, d, c = -1, b = 0;
     for (; b < l.length && (n.lastIndex = b, d = n.exec(l), d !== null); )
       b = n.lastIndex, n === N ? d[1] === "!--" ? n = dt : d[1] !== void 0 ? n = ct : d[2] !== void 0 ? (Pt.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = $) : d[3] !== void 0 && (n = $) : n === $ ? d[0] === ">" ? (n = s != null ? s : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, v = d[1], n = d[3] === void 0 ? $ : d[3] === '"' ? pt : ut) : n === pt || n === ut ? n = $ : n === dt || n === ct ? n = N : (n = $, s = void 0);
-    const M = n === $ && i[a + 1].startsWith("/>") ? " " : "";
-    o += n === N ? l + It : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + w + M) : l + w + (c === -2 ? (r.push(void 0), a) : M);
+    const O = n === $ && i[a + 1].startsWith("/>") ? " " : "";
+    o += n === N ? l + It : c >= 0 ? (r.push(v), l.slice(0, c) + "$lit$" + l.slice(c) + w + O) : l + w + (c === -2 ? (r.push(void 0), a) : O);
   }
   const h = o + (i[e] || "<?>") + (t === 2 ? "</svg>" : "");
   if (!Array.isArray(i) || !i.hasOwnProperty("raw"))
@@ -340,12 +340,12 @@ class H {
             if (c.endsWith("$lit$") || c.startsWith(w)) {
               const b = v[n++];
               if (d.push(c), b !== void 0) {
-                const M = s.getAttribute(b.toLowerCase() + "$lit$").split(w), R = /([.?@])?(.*)/.exec(b);
+                const O = s.getAttribute(b.toLowerCase() + "$lit$").split(w), R = /([.?@])?(.*)/.exec(b);
                 a.push({
                   type: 1,
                   index: o,
                   name: R[2],
-                  strings: M,
+                  strings: O,
                   ctor: R[1] === "." ? Vt : R[1] === "?" ? Kt : R[1] === "@" ? Zt : D
                 });
               } else
@@ -422,7 +422,7 @@ class qt {
     for (; l !== void 0; ) {
       if (h === l.index) {
         let v;
-        l.type === 2 ? v = new O(n, n.nextSibling, this, t) : l.type === 1 ? v = new l.ctor(n, l.name, l.strings, this, t) : l.type === 6 && (v = new Gt(n, this, t)), this.v.push(v), l = s[++a];
+        l.type === 2 ? v = new M(n, n.nextSibling, this, t) : l.type === 1 ? v = new l.ctor(n, l.name, l.strings, this, t) : l.type === 6 && (v = new Gt(n, this, t)), this.v.push(v), l = s[++a];
       }
       h !== (l == null ? void 0 : l.index) && (n = _.nextNode(), h++);
     }
@@ -434,7 +434,7 @@ class qt {
       r !== void 0 && (r.strings !== void 0 ? (r._$AI(t, r, e), e += r.strings.length - 2) : r._$AI(t[e])), e++;
   }
 }
-class O {
+class M {
   constructor(t, e, r, s) {
     var o;
     this.type = 2, this._$AH = p, this._$AN = void 0, this._$AA = t, this._$AB = e, this._$AM = r, this.options = s, this._$C_ = (o = s == null ? void 0 : s.isConnected) === null || o === void 0 || o;
@@ -488,7 +488,7 @@ class O {
     const e = this._$AH;
     let r, s = 0;
     for (const o of t)
-      s === e.length ? e.push(r = new O(this.S(U()), this.S(U()), this, this.options)) : r = e[s], r._$AI(o), s++;
+      s === e.length ? e.push(r = new M(this.S(U()), this.S(U()), this, this.options)) : r = e[s], r._$AI(o), s++;
     s < e.length && (this._$AR(r && r._$AB.nextSibling, s), e.length = s);
   }
   _$AR(t = this._$AA.nextSibling, e) {
@@ -575,7 +575,7 @@ class Gt {
   }
 }
 const gt = L.litHtmlPolyfillSupport;
-gt == null || gt(H, O), ((V = L.litHtmlVersions) !== null && V !== void 0 ? V : L.litHtmlVersions = []).push("2.3.1");
+gt == null || gt(H, M), ((V = L.litHtmlVersions) !== null && V !== void 0 ? V : L.litHtmlVersions = []).push("2.3.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -688,7 +688,7 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }, Ht = function(i) {
   var t = i.r, e = i.g, r = i.b, s = i.a, o = Math.max(t, e, r), n = o - Math.min(t, e, r), h = n ? o === t ? (e - r) / n : o === e ? 2 + (r - t) / n : 4 + (t - e) / n : 0;
   return { h: 60 * (h < 0 ? h + 6 : h), s: o ? n / o * 100 : 0, v: o / 255 * 100, a: s };
-}, Ot = function(i) {
+}, Mt = function(i) {
   var t = i.h, e = i.s, r = i.v, s = i.a;
   t = t / 360 * 6, e /= 100, r /= 100;
   var o = Math.floor(t), n = r * (1 - e), h = r * (1 - (t - o) * e), a = r * (1 - (1 - t + o) * e), l = o % 6;
@@ -698,7 +698,7 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }, wt = function(i) {
   return { h: u(i.h), s: u(i.s), l: u(i.l), a: u(i.a, 3) };
 }, $t = function(i) {
-  return Ot((e = (t = i).s, { h: t.h, s: (e *= ((r = t.l) < 50 ? r : 100 - r) / 100) > 0 ? 2 * e / (r + e) * 100 : 0, v: r + e, a: t.a }));
+  return Mt((e = (t = i).s, { h: t.h, s: (e *= ((r = t.l) < 50 ? r : 100 - r) / 100) > 0 ? 2 * e / (r + e) * 100 : 0, v: r + e, a: t.a }));
   var t, e, r;
 }, P = function(i) {
   return { h: (t = Ht(i)).h, s: (s = (200 - (e = t.s)) * (r = t.v) / 100) > 0 && s < 200 ? e * r / 100 / (s <= 100 ? s : 200 - s) * 100 : 0, l: s / 2, a: t.a };
@@ -731,7 +731,7 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   var n = function(h) {
     return { h: zt(h.h), s: g(h.s, 0, 100), v: g(h.v, 0, 100), a: g(h.a) };
   }({ h: Number(t), s: Number(e), v: Number(r), a: Number(o) });
-  return Ot(n);
+  return Mt(n);
 }, "hsv"]] }, _t = function(i, t) {
   for (var e = 0; e < t.length; e++) {
     var r = t[e][0](i);
@@ -804,7 +804,7 @@ var Xt = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }(), f = function(i) {
   return i instanceof xt ? i : new xt(i);
 };
-const Mt = rt`/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
+const Ot = rt`/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -1296,7 +1296,7 @@ let C = class extends A {
       </div>`;
   }
 };
-C.styles = [Mt, rt`.relative {
+C.styles = [Ot, rt`.relative {
     position: relative
 }
 .h-24 {
@@ -1353,11 +1353,15 @@ var ae = Object.defineProperty, le = Object.getOwnPropertyDescriptor, he = (i, t
   return r && s && ae(t, e, s), s;
 };
 let tt = class extends A {
+  constructor() {
+    super(...arguments), this.colorMap = {};
+  }
   loadColorMap(i) {
     this.colorMap = i, this.requestUpdate();
   }
   render() {
-    return St(Object.entries(this.colorMap), ([i, t]) => Q` <div class="text-2xl font-semibold mb-2">${i}</div>
+    return St(Object.entries(this.colorMap), ([i, t]) => Q`<div>
+        <div class="text-2xl font-semibold mb-2">${i}</div>
         <div
           class="grid gap-x-1 gap-y-5"
           style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
@@ -1367,10 +1371,11 @@ let tt = class extends A {
               color="${r}"
               format="hex"
             ></ag-color-square>`)}
-        </div>`);
+        </div>
+      </div>`);
   }
 };
-tt.styles = [Mt, rt`.mb-2 {
+tt.styles = [Ot, rt`.mb-2 {
     margin-bottom: 0.5rem
 }
 .grid {

@@ -11,7 +11,7 @@ interface ColorMap {
 
 @customElement("ag-color-section")
 export class AGColorSection extends LitElement {
-  private colorMap: ColorMap;
+  private colorMap: ColorMap = {};
 
   loadColorMap(colorMap: ColorMap) {
     this.colorMap = colorMap;
@@ -27,7 +27,8 @@ export class AGColorSection extends LitElement {
 
   render() {
     return map(Object.entries(this.colorMap), ([groupName, colors]) => {
-      return html` <div class="text-2xl font-semibold mb-2">${groupName}</div>
+      return html`<div>
+        <div class="text-2xl font-semibold mb-2">${groupName}</div>
         <div
           class="grid gap-x-1 gap-y-5"
           style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
@@ -39,7 +40,8 @@ export class AGColorSection extends LitElement {
               format="hex"
             ></ag-color-square>`;
           })}
-        </div>`;
+        </div>
+      </div>`;
     });
   }
 }
