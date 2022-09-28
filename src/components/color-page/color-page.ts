@@ -1,6 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
+import { when } from "lit/directives/when.js";
 import baseStyles from "../../base-style";
 
 interface ColorMap {
@@ -31,19 +32,32 @@ export class AGColorPage extends LitElement {
 
   render() {
     return map(Object.entries(this.colorMap), ([groupName, colors]) => {
+      const isSingleColor = typeof colors === "string";
+
       return html`<div>
         <div class="text-2xl capitalize font-semibold mb-2">${groupName}</div>
         <div
           class="grid gap-x-1 gap-y-5"
           style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
         >
-          ${map(Object.entries(colors), ([colorLevel, colorCode]) => {
-            return html`<ag-color-square
-              name="${`${groupName} ${colorLevel}`}"
-              color="${colorCode}"
+          ${when(
+            isSingleColor,
+            () => html`<ag-color-square
+              name="${groupName}"
+              color="${colors}"
               format="hex"
-            ></ag-color-square>`;
-          })}
+            ></ag-color-square>`,
+            () =>
+              map(
+                Object.entries(colors),
+                ([colorLevel, colorCode]) =>
+                  html`<ag-color-square
+                    name="${`${groupName} ${colorLevel}`}"
+                    color="${colorCode}"
+                    format="hex"
+                  ></ag-color-square>`
+              )
+          )}
         </div>
       </div>`;
     });
