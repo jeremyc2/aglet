@@ -1,5 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { createRef, Ref, ref } from "lit/directives/ref.js";
 import { colord } from "colord";
 import baseStyles from "../../base-style";
 
@@ -27,6 +28,15 @@ export class AGColorSquare extends LitElement {
   @property()
   format: "hex" | "rgb" | "hsl";
 
+  private divRef: Ref<HTMLDivElement> = createRef();
+  private colorCodeRef: Ref<HTMLDivElement> = createRef();
+
+  private copy() {
+    this.divRef.value!.classList.toggle("copy-overlay");
+    const colorCode = this.colorCodeRef.value!.textContent?.trim();
+    if (colorCode) navigator.clipboard.writeText(colorCode);
+  }
+
   static styles = [
     baseStyles,
     css`
@@ -45,15 +55,15 @@ export class AGColorSquare extends LitElement {
   ];
 
   render() {
-    return html`<div class="rounded h-24 group">
+    return html`<div @click="${this.copy}" class="rounded h-24 group">
         <div
           class="rounded shadow cursor-copy h-24 group-hover:scale-90"
           style="background-color: ${this.color};"
         ></div>
       </div>
-      <div class="relative">
+      <div ${ref(this.divRef)} class="relative">
         <div>${this.name}</div>
-        <div class="text-gray-500 font-extralight">
+        <div ${ref(this.colorCodeRef)} class="text-gray-500 font-extralight">
           ${convertColorCode(this.color, this.format)}
         </div>
       </div>`;
