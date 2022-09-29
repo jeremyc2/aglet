@@ -4,7 +4,9 @@ import { createRef, Ref, ref } from "lit/directives/ref.js";
 import { colord } from "colord";
 import baseStyles from "../../base-style";
 
-function convertColorCode(colorCode: string, format: "hex" | "rgb" | "hsl") {
+type ColorFormat = "hex" | "rgb" | "hsl";
+
+function convertColorCode(colorCode: string, format: ColorFormat) {
   if (format === "hex") {
     return colord(colorCode).toHex().toUpperCase();
   }
@@ -26,7 +28,7 @@ export class AGColorSquare extends LitElement {
   color: string;
 
   @property()
-  format: "hex" | "rgb" | "hsl";
+  format: ColorFormat;
 
   private labelContainerRef: Ref<HTMLDivElement> = createRef();
   private colorCodeRef: Ref<HTMLDivElement> = createRef();
