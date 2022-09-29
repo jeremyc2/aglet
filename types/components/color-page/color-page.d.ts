@@ -7,6 +7,7 @@ interface ColorMap {
 export declare class AGColorPage extends LitElement {
     private colorMap;
     loadColorMap(colorMap: ColorMap): void;
+    format: "hex" | "rgb" | "hsl";
     static styles: import("lit").CSSResult[];
     render(): Generator<unknown, void, unknown>;
 }

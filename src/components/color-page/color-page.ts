@@ -1,5 +1,5 @@
 import { css, html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { map } from "lit/directives/map.js";
 import { when } from "lit/directives/when.js";
 import baseStyles from "../../base-style";
@@ -18,6 +18,9 @@ export class AGColorPage extends LitElement {
     this.colorMap = colorMap;
     this.requestUpdate();
   }
+
+  @property()
+  format: "hex" | "rgb" | "hsl";
 
   static styles = [
     baseStyles,
@@ -45,7 +48,7 @@ export class AGColorPage extends LitElement {
             () => html`<ag-color-square
               name="${groupName}"
               color="${colors}"
-              format="hex"
+              format="${this.format}"
             ></ag-color-square>`,
             () =>
               map(
@@ -54,7 +57,7 @@ export class AGColorPage extends LitElement {
                   html`<ag-color-square
                     name="${`${groupName} ${colorLevel}`}"
                     color="${colorCode}"
-                    format="hex"
+                    format="${this.format}"
                   ></ag-color-square>`
               )
           )}
