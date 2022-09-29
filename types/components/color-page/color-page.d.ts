@@ -10,7 +10,7 @@ export declare class AGColorPage extends LitElement {
     loadColorMap(colorMap: ColorMap): void;
     format: ColorFormat;
     static styles: import("lit").CSSResult[];
-    render(): import("lit").TemplateResult<1>[];
+    render(): (import("lit").TemplateResult<1> | undefined)[];
 }
 declare global {
     interface HTMLElementTagNameMap {
