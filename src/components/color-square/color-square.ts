@@ -28,13 +28,29 @@ export class AGColorSquare extends LitElement {
   @property()
   format: "hex" | "rgb" | "hsl";
 
-  private divRef: Ref<HTMLDivElement> = createRef();
+  private labelContainerRef: Ref<HTMLDivElement> = createRef();
   private colorCodeRef: Ref<HTMLDivElement> = createRef();
 
+  private copyTimeout: number;
+
   private copy() {
-    this.divRef.value!.classList.add("copy-overlay");
-    const colorCode = this.colorCodeRef.value!.textContent?.trim();
+    const labelContainer = this.labelContainerRef.value;
+    const colorCodeDiv = this.colorCodeRef.value;
+
+    if (!labelContainer || !colorCodeDiv) return;
+
+    if (this.copyTimeout) {
+      clearTimeout(this.copyTimeout);
+    }
+
+    labelContainer.classList.add("copy-overlay");
+    const colorCode = colorCodeDiv.textContent?.trim();
+
     if (colorCode) navigator.clipboard.writeText(colorCode);
+
+    this.copyTimeout = setTimeout(() => {
+      labelContainer.classList.remove("copy-overlay");
+    }, 1000);
   }
 
   static styles = [
@@ -61,7 +77,7 @@ export class AGColorSquare extends LitElement {
           style="background-color: ${this.color};"
         ></div>
       </div>
-      <div ${ref(this.divRef)} class="relative">
+      <div ${ref(this.labelContainerRef)} class="relative">
         <div>${this.name}</div>
         <div ${ref(this.colorCodeRef)} class="text-gray-500 font-extralight">
           ${convertColorCode(this.color, this.format)}
