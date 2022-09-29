@@ -1,13 +1,50 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { map } from "lit/directives/map.js";
-import { when } from "lit/directives/when.js";
 import baseStyles from "../../base-style";
 
+interface Color {
+  name: string;
+  code: string;
+}
+
+interface ColorGroup {
+  name: string;
+  colors: Color[];
+}
+
 interface ColorMap {
-  [groupName: string]: {
-    [colorLevel: string | number]: string;
-  };
+  [name: string]:
+    | {
+        [colorLevel: string | number]: string;
+      }
+    | string;
+}
+
+type ColorFormat = "hex" | "rgb" | "hsl";
+
+function buildColorSection(
+  groupName: string,
+  format: ColorFormat,
+  colors: Color[],
+  uncategorized: boolean
+) {
+  if (colors.length === 0) return;
+  return html`<div>
+    <div class="text-2xl capitalize font-semibold mb-2">${groupName}</div>
+    <div
+      class="grid gap-x-1 gap-y-5"
+      style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
+    >
+      ${colors.map(({ name: colorName, code: colorCode }) => {
+        const name = uncategorized ? colorName : `${groupName} ${colorName}`;
+        return html`<ag-color-square
+          name="${name}"
+          color="${colorCode}"
+          format="${format}"
+        ></ag-color-square>`;
+      })}
+    </div>
+  </div>`;
 }
 
 @customElement("ag-color-page")
@@ -20,7 +57,7 @@ export class AGColorPage extends LitElement {
   }
 
   @property()
-  format: "hex" | "rgb" | "hsl";
+  format: ColorFormat;
 
   static styles = [
     baseStyles,
@@ -34,36 +71,35 @@ export class AGColorPage extends LitElement {
   ];
 
   render() {
-    return map(Object.entries(this.colorMap), ([groupName, colors]) => {
-      const isSingleColor = typeof colors === "string";
+    let colors: Color[] = [],
+      colorGroups: ColorGroup[] = [];
 
-      return html`<div>
-        <div class="text-2xl capitalize font-semibold mb-2">${groupName}</div>
-        <div
-          class="grid gap-x-1 gap-y-5"
-          style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
-        >
-          ${when(
-            isSingleColor,
-            () => html`<ag-color-square
-              name="${groupName}"
-              color="${colors}"
-              format="${this.format}"
-            ></ag-color-square>`,
-            () =>
-              map(
-                Object.entries(colors),
-                ([colorLevel, colorCode]) =>
-                  html`<ag-color-square
-                    name="${`${groupName} ${colorLevel}`}"
-                    color="${colorCode}"
-                    format="${this.format}"
-                  ></ag-color-square>`
-              )
-          )}
-        </div>
-      </div>`;
+    Object.entries(this.colorMap).forEach(([name, value]) => {
+      if (typeof value === "string") {
+        colors.push({ name, code: value });
+        return;
+      }
+
+      colorGroups.push({
+        name,
+        colors: Object.entries(value).map(([name, code]) => ({
+          name,
+          code,
+        })),
+      });
     });
+
+    return [
+      buildColorSection("General", this.format, colors, true),
+      ...colorGroups.map((colorGroup) =>
+        buildColorSection(
+          colorGroup.name,
+          this.format,
+          colorGroup.colors,
+          false
+        )
+      ),
+    ];
   }
 }
 

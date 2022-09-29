@@ -1,15 +1,16 @@
 import { LitElement } from "lit";
 interface ColorMap {
-    [groupName: string]: {
+    [name: string]: {
         [colorLevel: string | number]: string;
-    };
+    } | string;
 }
+declare type ColorFormat = "hex" | "rgb" | "hsl";
 export declare class AGColorPage extends LitElement {
     private colorMap;
     loadColorMap(colorMap: ColorMap): void;
-    format: "hex" | "rgb" | "hsl";
+    format: ColorFormat;
     static styles: import("lit").CSSResult[];
-    render(): Generator<unknown, void, unknown>;
+    render(): import("lit").TemplateResult<1>[];
 }
 declare global {
     interface HTMLElementTagNameMap {
