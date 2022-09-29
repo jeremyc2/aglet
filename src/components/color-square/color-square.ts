@@ -32,7 +32,7 @@ export class AGColorSquare extends LitElement {
   private colorCodeRef: Ref<HTMLDivElement> = createRef();
 
   private copy() {
-    this.divRef.value!.classList.toggle("copy-overlay");
+    this.divRef.value!.classList.add("copy-overlay");
     const colorCode = this.colorCodeRef.value!.textContent?.trim();
     if (colorCode) navigator.clipboard.writeText(colorCode);
   }

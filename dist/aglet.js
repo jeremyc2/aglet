@@ -1436,7 +1436,7 @@ let k = class extends A {
   }
   copy() {
     var t;
-    this.divRef.value.classList.toggle("copy-overlay");
+    this.divRef.value.classList.add("copy-overlay");
     const i = (t = this.colorCodeRef.value.textContent) == null ? void 0 : t.trim();
     i && navigator.clipboard.writeText(i);
   }
