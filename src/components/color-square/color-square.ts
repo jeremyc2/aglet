@@ -62,10 +62,14 @@ export class AGColorSquare extends LitElement {
         @apply flex flex-col max-w-[12rem];
       }
 
+      .copy-overlay {
+        @apply invisible;
+      }
+
       .copy-overlay::after {
         @apply absolute text-green-700
         flex justify-center items-center
-        inset-0 content-['Copied!'];
+        inset-0 content-['Copied!'] visible;
       }
     `,
   ];

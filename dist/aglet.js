@@ -290,7 +290,7 @@ const D = window, x = D.trustedTypes, ut = x ? x.createPolicy("lit-html", {
 \f\r](?:([^\\s"'>=/]+)([ 	
 \f\r]*=[ 	
 \f\r]*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), gt = /'/g, vt = /"/g, Tt = /^(?:script|style|textarea|title)$/i, Wt = (i) => (t, ...e) => ({
+\f\r"'\`<>=]|("|')|))|$)`, "g"), vt = /'/g, gt = /"/g, Tt = /^(?:script|style|textarea|title)$/i, Wt = (i) => (t, ...e) => ({
   _$litType$: i,
   strings: t,
   values: e
@@ -308,9 +308,9 @@ const D = window, x = D.trustedTypes, ut = x ? x.createPolicy("lit-html", {
   let r, o = t === 2 ? "<svg>" : "", n = N;
   for (let a = 0; a < e; a++) {
     const l = i[a];
-    let b, d, c = -1, v = 0;
-    for (; v < l.length && (n.lastIndex = v, d = n.exec(l), d !== null); )
-      v = n.lastIndex, n === N ? d[1] === "!--" ? n = pt : d[1] !== void 0 ? n = ft : d[2] !== void 0 ? (Tt.test(d[2]) && (r = RegExp("</" + d[2], "g")), n = w) : d[3] !== void 0 && (n = w) : n === w ? d[0] === ">" ? (n = r != null ? r : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, b = d[1], n = d[3] === void 0 ? w : d[3] === '"' ? vt : gt) : n === vt || n === gt ? n = w : n === pt || n === ft ? n = N : (n = w, r = void 0);
+    let b, d, c = -1, g = 0;
+    for (; g < l.length && (n.lastIndex = g, d = n.exec(l), d !== null); )
+      g = n.lastIndex, n === N ? d[1] === "!--" ? n = pt : d[1] !== void 0 ? n = ft : d[2] !== void 0 ? (Tt.test(d[2]) && (r = RegExp("</" + d[2], "g")), n = w) : d[3] !== void 0 && (n = w) : n === w ? d[0] === ">" ? (n = r != null ? r : N, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, b = d[1], n = d[3] === void 0 ? w : d[3] === '"' ? gt : vt) : n === gt || n === vt ? n = w : n === pt || n === ft ? n = N : (n = w, r = void 0);
     const H = n === w && i[a + 1].startsWith("/>") ? " " : "";
     o += n === N ? l + Vt : c >= 0 ? (s.push(b), l.slice(0, c) + "$lit$" + l.slice(c) + $ + H) : l + $ + (c === -2 ? (s.push(void 0), a) : H);
   }
@@ -338,9 +338,9 @@ class T {
           const d = [];
           for (const c of r.getAttributeNames())
             if (c.endsWith("$lit$") || c.startsWith($)) {
-              const v = b[n++];
-              if (d.push(c), v !== void 0) {
-                const H = r.getAttribute(v.toLowerCase() + "$lit$").split($), O = /([.?@])?(.*)/.exec(v);
+              const g = b[n++];
+              if (d.push(c), g !== void 0) {
+                const H = r.getAttribute(g.toLowerCase() + "$lit$").split($), O = /([.?@])?(.*)/.exec(g);
                 a.push({
                   type: 1,
                   index: o,
@@ -361,8 +361,8 @@ class T {
           const d = r.textContent.split($), c = d.length - 1;
           if (c > 0) {
             r.textContent = x ? x.emptyScript : "";
-            for (let v = 0; v < c; v++)
-              r.append(d[v], z()), _.nextNode(), a.push({
+            for (let g = 0; g < c; g++)
+              r.append(d[g], z()), _.nextNode(), a.push({
                 type: 2,
                 index: ++o
               });
@@ -822,15 +822,15 @@ var fe = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   return typeof i == "string" ? i.length > 0 : typeof i == "number";
 }, p = function(i, t, e) {
   return t === void 0 && (t = 0), e === void 0 && (e = Math.pow(10, t)), Math.round(e * i) / e + 0;
-}, g = function(i, t, e) {
+}, v = function(i, t, e) {
   return t === void 0 && (t = 0), e === void 0 && (e = 1), i > e ? e : i > t ? i : t;
 }, Ot = function(i) {
   return (i = isFinite(i) ? i % 360 : 0) > 0 ? i : i + 360;
 }, wt = function(i) {
-  return { r: g(i.r, 0, 255), g: g(i.g, 0, 255), b: g(i.b, 0, 255), a: g(i.a) };
+  return { r: v(i.r, 0, 255), g: v(i.g, 0, 255), b: v(i.b, 0, 255), a: v(i.a) };
 }, tt = function(i) {
   return { r: p(i.r), g: p(i.g), b: p(i.b), a: p(i.a, 3) };
-}, ge = /^#([0-9a-f]{3,8})$/i, I = function(i) {
+}, ve = /^#([0-9a-f]{3,8})$/i, I = function(i) {
   var t = i.toString(16);
   return t.length < 2 ? "0" + t : t;
 }, It = function(i) {
@@ -842,7 +842,7 @@ var fe = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   var o = Math.floor(t), n = s * (1 - e), h = s * (1 - (t - o) * e), a = s * (1 - (1 - t + o) * e), l = o % 6;
   return { r: 255 * [s, h, n, n, a, s][l], g: 255 * [a, s, s, h, n, n][l], b: 255 * [n, n, a, s, s, h][l], a: r };
 }, yt = function(i) {
-  return { h: Ot(i.h), s: g(i.s, 0, 100), l: g(i.l, 0, 100), a: g(i.a) };
+  return { h: Ot(i.h), s: v(i.s, 0, 100), l: v(i.l, 0, 100), a: v(i.a) };
 }, _t = function(i) {
   return { h: p(i.h), s: p(i.s), l: p(i.l), a: p(i.a, 3) };
 }, At = function(i) {
@@ -851,14 +851,14 @@ var fe = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
 }, U = function(i) {
   return { h: (t = It(i)).h, s: (r = (200 - (e = t.s)) * (s = t.v) / 100) > 0 && r < 200 ? e * s / 100 / (r <= 100 ? r : 200 - r) * 100 : 0, l: r / 2, a: t.a };
   var t, e, s, r;
-}, ve = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, be = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, me = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, $e = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, xt = { string: [[function(i) {
-  var t = ge.exec(i);
+}, ge = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, be = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, me = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, $e = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, xt = { string: [[function(i) {
+  var t = ve.exec(i);
   return t ? (i = t[1]).length <= 4 ? { r: parseInt(i[0] + i[0], 16), g: parseInt(i[1] + i[1], 16), b: parseInt(i[2] + i[2], 16), a: i.length === 4 ? p(parseInt(i[3] + i[3], 16) / 255, 2) : 1 } : i.length === 6 || i.length === 8 ? { r: parseInt(i.substr(0, 2), 16), g: parseInt(i.substr(2, 2), 16), b: parseInt(i.substr(4, 2), 16), a: i.length === 8 ? p(parseInt(i.substr(6, 2), 16) / 255, 2) : 1 } : null : null;
 }, "hex"], [function(i) {
   var t = me.exec(i) || $e.exec(i);
   return t ? t[2] !== t[4] || t[4] !== t[6] ? null : wt({ r: Number(t[1]) / (t[2] ? 100 / 255 : 1), g: Number(t[3]) / (t[4] ? 100 / 255 : 1), b: Number(t[5]) / (t[6] ? 100 / 255 : 1), a: t[7] === void 0 ? 1 : Number(t[7]) / (t[8] ? 100 : 1) }) : null;
 }, "rgb"], [function(i) {
-  var t = ve.exec(i) || be.exec(i);
+  var t = ge.exec(i) || be.exec(i);
   if (!t)
     return null;
   var e, s, r = yt({ h: (e = t[1], s = t[2], s === void 0 && (s = "deg"), Number(e) * (fe[s] || 1)), s: Number(t[3]), l: Number(t[4]), a: t[5] === void 0 ? 1 : Number(t[5]) / (t[6] ? 100 : 1) });
@@ -877,7 +877,7 @@ var fe = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   if (!m(t) || !m(e) || !m(s))
     return null;
   var n = function(h) {
-    return { h: Ot(h.h), s: g(h.s, 0, 100), v: g(h.v, 0, 100), a: g(h.a) };
+    return { h: Ot(h.h), s: v(h.s, 0, 100), v: v(h.v, 0, 100), a: v(h.a) };
   }({ h: Number(t), s: Number(e), v: Number(s), a: Number(o) });
   return jt(n);
 }, "hsv"]] }, St = function(i, t) {
@@ -891,12 +891,12 @@ var fe = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, m = function(i) {
   return typeof i == "string" ? St(i.trim(), xt.string) : typeof i == "object" && i !== null ? St(i, xt.object) : [null, void 0];
 }, et = function(i, t) {
   var e = U(i);
-  return { h: e.h, s: g(e.s + 100 * t, 0, 100), l: e.l, a: e.a };
+  return { h: e.h, s: v(e.s + 100 * t, 0, 100), l: e.l, a: e.a };
 }, it = function(i) {
   return (299 * i.r + 587 * i.g + 114 * i.b) / 1e3 / 255;
 }, Et = function(i, t) {
   var e = U(i);
-  return { h: e.h, s: e.s, l: g(e.l + 100 * t, 0, 100), a: e.a };
+  return { h: e.h, s: e.s, l: v(e.l + 100 * t, 0, 100), a: e.a };
 }, Ct = function() {
   function i(t) {
     this.parsed = we(t)[0], this.rgba = this.parsed || { r: 0, g: 0, b: 0, a: 1 };
@@ -1488,7 +1488,11 @@ k.styles = [Lt, at`.relative {
     max-width: 12rem;
     flex-direction: column
 }
+      .copy-overlay {
+    visibility: hidden
+}
       .copy-overlay::after {
+    visibility: visible;
     position: absolute;
     top: 0px;
     right: 0px;
