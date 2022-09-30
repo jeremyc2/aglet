@@ -1,8 +1,9 @@
 import { LitElement } from "lit";
+declare type ColorFormat = "hex" | "rgb" | "hsl";
 export declare class AGColorSquare extends LitElement {
     name: string;
     color: string;
-    format: "hex" | "rgb" | "hsl";
+    format: ColorFormat;
     private labelContainerRef;
     private colorCodeRef;
     private copyTimeout;
@@ -15,3 +16,4 @@ declare global {
         "ag-color-square": AGColorSquare;
     }
 }
+export {};

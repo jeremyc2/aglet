@@ -4,7 +4,9 @@ import { createRef, Ref, ref } from "lit/directives/ref.js";
 import { colord } from "colord";
 import baseStyles from "../../base-style";
 
-function convertColorCode(colorCode: string, format: "hex" | "rgb" | "hsl") {
+type ColorFormat = "hex" | "rgb" | "hsl";
+
+function convertColorCode(colorCode: string, format: ColorFormat) {
   if (format === "hex") {
     return colord(colorCode).toHex().toUpperCase();
   }
@@ -26,25 +28,23 @@ export class AGColorSquare extends LitElement {
   color: string;
 
   @property()
-  format: "hex" | "rgb" | "hsl";
+  format: ColorFormat;
 
   private labelContainerRef: Ref<HTMLDivElement> = createRef();
-  private colorCodeRef: Ref<HTMLDivElement> = createRef();
 
   private copyTimeout: number;
 
   private copy() {
     const labelContainer = this.labelContainerRef.value;
-    const colorCodeDiv = this.colorCodeRef.value;
 
-    if (!labelContainer || !colorCodeDiv) return;
+    if (!labelContainer) return;
 
     if (this.copyTimeout) {
       clearTimeout(this.copyTimeout);
     }
 
     labelContainer.classList.add("copy-overlay");
-    const colorCode = colorCodeDiv.textContent?.trim();
+    const colorCode = convertColorCode(this.color, this.format);
 
     if (colorCode) navigator.clipboard.writeText(colorCode);
 
@@ -63,7 +63,7 @@ export class AGColorSquare extends LitElement {
       }
 
       .copy-overlay::after {
-        @apply absolute bg-white text-green-700
+        @apply absolute text-green-700
         flex justify-center items-center
         inset-0 content-['Copied!'];
       }
@@ -79,7 +79,7 @@ export class AGColorSquare extends LitElement {
       </div>
       <div ${ref(this.labelContainerRef)} class="relative">
         <div>${this.name}</div>
-        <div ${ref(this.colorCodeRef)} class="text-gray-500 font-extralight">
+        <div class="text-gray-500 font-extralight">
           ${convertColorCode(this.color, this.format)}
         </div>
       </div>`;
