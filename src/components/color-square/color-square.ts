@@ -30,6 +30,9 @@ export class AGColorSquare extends LitElement {
   @property()
   format: ColorFormat;
 
+  @property()
+  primaryAction: "copy-name" | "copy-code";
+
   private labelContainerRef: Ref<HTMLDivElement> = createRef();
 
   private copyTimeout: number;
@@ -44,9 +47,12 @@ export class AGColorSquare extends LitElement {
     }
 
     labelContainer.classList.add("copy-overlay");
-    const colorCode = convertColorCode(this.color, this.format);
+    const copyText =
+      this.primaryAction === "copy-name"
+        ? this.name
+        : convertColorCode(this.color, this.format);
 
-    if (colorCode) navigator.clipboard.writeText(colorCode);
+    if (copyText) navigator.clipboard.writeText(copyText);
 
     this.copyTimeout = setTimeout(() => {
       labelContainer.classList.remove("copy-overlay");
