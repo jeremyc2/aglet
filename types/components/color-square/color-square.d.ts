@@ -5,7 +5,6 @@ export declare class AGColorSquare extends LitElement {
     color: string;
     format: ColorFormat;
     private labelContainerRef;
-    private colorCodeRef;
     private copyTimeout;
     private copy;
     static styles: import("lit").CSSResult[];
