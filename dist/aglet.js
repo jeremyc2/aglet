@@ -294,7 +294,7 @@ const F = window, E = F.trustedTypes, pt = E ? E.createPolicy("lit-html", {
   _$litType$: i,
   strings: t,
   values: e
-}), ot = Wt(1), k = Symbol.for("lit-noChange"), u = Symbol.for("lit-nothing"), mt = /* @__PURE__ */ new WeakMap(), Gt = (i, t, e) => {
+}), ot = Wt(1), k = Symbol.for("lit-noChange"), c = Symbol.for("lit-nothing"), mt = /* @__PURE__ */ new WeakMap(), Gt = (i, t, e) => {
   var r, s;
   const o = (r = e == null ? void 0 : e.renderBefore) !== null && r !== void 0 ? r : t;
   let n = o._$litPart$;
@@ -308,11 +308,11 @@ const F = window, E = F.trustedTypes, pt = E ? E.createPolicy("lit-html", {
   let s, o = t === 2 ? "<svg>" : "", n = U;
   for (let a = 0; a < e; a++) {
     const l = i[a];
-    let b, d, c = -1, g = 0;
+    let b, d, u = -1, g = 0;
     for (; g < l.length && (n.lastIndex = g, d = n.exec(l), d !== null); )
-      g = n.lastIndex, n === U ? d[1] === "!--" ? n = ft : d[1] !== void 0 ? n = vt : d[2] !== void 0 ? (Rt.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = _) : d[3] !== void 0 && (n = _) : n === _ ? d[0] === ">" ? (n = s != null ? s : U, c = -1) : d[1] === void 0 ? c = -2 : (c = n.lastIndex - d[2].length, b = d[1], n = d[3] === void 0 ? _ : d[3] === '"' ? bt : gt) : n === bt || n === gt ? n = _ : n === ft || n === vt ? n = U : (n = _, s = void 0);
+      g = n.lastIndex, n === U ? d[1] === "!--" ? n = ft : d[1] !== void 0 ? n = vt : d[2] !== void 0 ? (Rt.test(d[2]) && (s = RegExp("</" + d[2], "g")), n = _) : d[3] !== void 0 && (n = _) : n === _ ? d[0] === ">" ? (n = s != null ? s : U, u = -1) : d[1] === void 0 ? u = -2 : (u = n.lastIndex - d[2].length, b = d[1], n = d[3] === void 0 ? _ : d[3] === '"' ? bt : gt) : n === bt || n === gt ? n = _ : n === ft || n === vt ? n = U : (n = _, s = void 0);
     const j = n === _ && i[a + 1].startsWith("/>") ? " " : "";
-    o += n === U ? l + Vt : c >= 0 ? (r.push(b), l.slice(0, c) + "$lit$" + l.slice(c) + $ + j) : l + $ + (c === -2 ? (r.push(void 0), a) : j);
+    o += n === U ? l + Vt : u >= 0 ? (r.push(b), l.slice(0, u) + "$lit$" + l.slice(u) + $ + j) : l + $ + (u === -2 ? (r.push(void 0), a) : j);
   }
   const h = o + (i[e] || "<?>") + (t === 2 ? "</svg>" : "");
   if (!Array.isArray(i) || !i.hasOwnProperty("raw"))
@@ -329,17 +329,17 @@ class O {
     let o = 0, n = 0;
     const h = t.length - 1, a = this.parts, [l, b] = Kt(t, e);
     if (this.el = O.createElement(l, r), x.currentNode = this.el.content, e === 2) {
-      const d = this.el.content, c = d.firstChild;
-      c.remove(), d.append(...c.childNodes);
+      const d = this.el.content, u = d.firstChild;
+      u.remove(), d.append(...u.childNodes);
     }
     for (; (s = x.nextNode()) !== null && a.length < h; ) {
       if (s.nodeType === 1) {
         if (s.hasAttributes()) {
           const d = [];
-          for (const c of s.getAttributeNames())
-            if (c.endsWith("$lit$") || c.startsWith($)) {
+          for (const u of s.getAttributeNames())
+            if (u.endsWith("$lit$") || u.startsWith($)) {
               const g = b[n++];
-              if (d.push(c), g !== void 0) {
+              if (d.push(u), g !== void 0) {
                 const j = s.getAttribute(g.toLowerCase() + "$lit$").split($), L = /([.?@])?(.*)/.exec(g);
                 a.push({
                   type: 1,
@@ -354,19 +354,19 @@ class O {
                   index: o
                 });
             }
-          for (const c of d)
-            s.removeAttribute(c);
+          for (const u of d)
+            s.removeAttribute(u);
         }
         if (Rt.test(s.tagName)) {
-          const d = s.textContent.split($), c = d.length - 1;
-          if (c > 0) {
+          const d = s.textContent.split($), u = d.length - 1;
+          if (u > 0) {
             s.textContent = E ? E.emptyScript : "";
-            for (let g = 0; g < c; g++)
+            for (let g = 0; g < u; g++)
               s.append(d[g], R()), x.nextNode(), a.push({
                 type: 2,
                 index: ++o
               });
-            s.append(d[c], R());
+            s.append(d[u], R());
           }
         }
       } else if (s.nodeType === 8)
@@ -437,7 +437,7 @@ class Zt {
 class I {
   constructor(t, e, r, s) {
     var o;
-    this.type = 2, this._$AH = u, this._$AN = void 0, this._$AA = t, this._$AB = e, this._$AM = r, this.options = s, this._$C_ = (o = s == null ? void 0 : s.isConnected) === null || o === void 0 || o;
+    this.type = 2, this._$AH = c, this._$AN = void 0, this._$AA = t, this._$AB = e, this._$AM = r, this.options = s, this._$C_ = (o = s == null ? void 0 : s.isConnected) === null || o === void 0 || o;
   }
   get _$AU() {
     var t, e;
@@ -455,7 +455,7 @@ class I {
     return this._$AB;
   }
   _$AI(t, e = this) {
-    t = N(this, t, e), H(t) ? t === u || t == null || t === "" ? (this._$AH !== u && this._$AR(), this._$AH = u) : t !== this._$AH && t !== k && this.$(t) : t._$litType$ !== void 0 ? this.T(t) : t.nodeType !== void 0 ? this.k(t) : qt(t) ? this.O(t) : this.$(t);
+    t = N(this, t, e), H(t) ? t === c || t == null || t === "" ? (this._$AH !== c && this._$AR(), this._$AH = c) : t !== this._$AH && t !== k && this.$(t) : t._$litType$ !== void 0 ? this.T(t) : t.nodeType !== void 0 ? this.k(t) : qt(t) ? this.O(t) : this.$(t);
   }
   S(t, e = this._$AB) {
     return this._$AA.parentNode.insertBefore(t, e);
@@ -464,7 +464,7 @@ class I {
     this._$AH !== t && (this._$AR(), this._$AH = this.S(t));
   }
   $(t) {
-    this._$AH !== u && H(this._$AH) ? this._$AA.nextSibling.data = t : this.k(C.createTextNode(t)), this._$AH = t;
+    this._$AH !== c && H(this._$AH) ? this._$AA.nextSibling.data = t : this.k(C.createTextNode(t)), this._$AH = t;
   }
   T(t) {
     var e;
@@ -505,7 +505,7 @@ class I {
 }
 class q {
   constructor(t, e, r, s, o) {
-    this.type = 1, this._$AH = u, this._$AN = void 0, this.element = t, this.name = e, this._$AM = s, this.options = o, r.length > 2 || r[0] !== "" || r[1] !== "" ? (this._$AH = Array(r.length - 1).fill(new String()), this.strings = r) : this._$AH = u;
+    this.type = 1, this._$AH = c, this._$AN = void 0, this.element = t, this.name = e, this._$AM = s, this.options = o, r.length > 2 || r[0] !== "" || r[1] !== "" ? (this._$AH = Array(r.length - 1).fill(new String()), this.strings = r) : this._$AH = c;
   }
   get tagName() {
     return this.element.tagName;
@@ -522,12 +522,12 @@ class q {
       const h = t;
       let a, l;
       for (t = o[0], a = 0; a < o.length - 1; a++)
-        l = N(this, h[r + a], e, a), l === k && (l = this._$AH[a]), n || (n = !H(l) || l !== this._$AH[a]), l === u ? t = u : t !== u && (t += (l != null ? l : "") + o[a + 1]), this._$AH[a] = l;
+        l = N(this, h[r + a], e, a), l === k && (l = this._$AH[a]), n || (n = !H(l) || l !== this._$AH[a]), l === c ? t = c : t !== c && (t += (l != null ? l : "") + o[a + 1]), this._$AH[a] = l;
     }
     n && !s && this.P(t);
   }
   P(t) {
-    t === u ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, t != null ? t : "");
+    t === c ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, t != null ? t : "");
   }
 }
 class Jt extends q {
@@ -535,7 +535,7 @@ class Jt extends q {
     super(...arguments), this.type = 3;
   }
   P(t) {
-    this.element[this.name] = t === u ? void 0 : t;
+    this.element[this.name] = t === c ? void 0 : t;
   }
 }
 const Qt = E ? E.emptyScript : "";
@@ -544,7 +544,7 @@ class Xt extends q {
     super(...arguments), this.type = 4;
   }
   P(t) {
-    t && t !== u ? this.element.setAttribute(this.name, Qt) : this.element.removeAttribute(this.name);
+    t && t !== c ? this.element.setAttribute(this.name, Qt) : this.element.removeAttribute(this.name);
   }
 }
 class te extends q {
@@ -553,9 +553,9 @@ class te extends q {
   }
   _$AI(t, e = this) {
     var r;
-    if ((t = (r = N(this, t, e, 0)) !== null && r !== void 0 ? r : u) === k)
+    if ((t = (r = N(this, t, e, 0)) !== null && r !== void 0 ? r : c) === k)
       return;
-    const s = this._$AH, o = t === u && s !== u || t.capture !== s.capture || t.once !== s.once || t.passive !== s.passive, n = t !== u && (s === u || o);
+    const s = this._$AH, o = t === c && s !== c || t.capture !== s.capture || t.once !== s.once || t.passive !== s.passive, n = t !== c && (s === c || o);
     o && this.element.removeEventListener(this.name, this, s), n && this.element.addEventListener(this.name, this, t), this._$AH = t;
   }
   handleEvent(t) {
@@ -791,12 +791,12 @@ class ue {
 }
 const tt = /* @__PURE__ */ new WeakMap(), pe = oe(class extends de {
   render(i) {
-    return u;
+    return c;
   }
   update(i, [t]) {
     var e;
     const r = t !== this.Y;
-    return r && this.Y !== void 0 && this.rt(void 0), (r || this.lt !== this.dt) && (this.Y = t, this.ct = (e = i.options) === null || e === void 0 ? void 0 : e.host, this.rt(this.dt = i.element)), u;
+    return r && this.Y !== void 0 && this.rt(void 0), (r || this.lt !== this.dt) && (this.Y = t, this.ct = (e = i.options) === null || e === void 0 ? void 0 : e.host, this.rt(this.dt = i.element)), c;
   }
   rt(i) {
     var t;
@@ -1522,12 +1522,18 @@ T([y()], w.prototype, "format", 2);
 T([y()], w.prototype, "prefix", 2);
 T([y()], w.prototype, "primaryAction", 2);
 w = T([Ht("ag-color-square")], w);
-var xe = Object.defineProperty, Se = Object.getOwnPropertyDescriptor, W = (i, t, e, r) => {
-  for (var s = r > 1 ? void 0 : r ? Se(t, e) : t, o = i.length - 1, n; o >= 0; o--)
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+const xe = (i) => i != null ? i : c;
+var Se = Object.defineProperty, Ee = Object.getOwnPropertyDescriptor, W = (i, t, e, r) => {
+  for (var s = r > 1 ? void 0 : r ? Ee(t, e) : t, o = i.length - 1, n; o >= 0; o--)
     (n = i[o]) && (s = (r ? n(t, e, s) : n(s)) || s);
-  return r && s && xe(t, e, s), s;
+  return r && s && Se(t, e, s), s;
 };
-function Pt(i, t, e, r, s, o = "") {
+function Pt(i, t, e, r, s, o) {
   if (e.length !== 0)
     return ot`<div>
     <div class="text-2xl capitalize font-semibold mb-2">${i}</div>
@@ -1545,7 +1551,7 @@ function Pt(i, t, e, r, s, o = "") {
           color="${h}"
           format="${t}"
           primaryAction="${s}"
-          prefix="${o}"
+          prefix="${xe(o)}"
         ></ag-color-square>`;
     })}
     </div>
