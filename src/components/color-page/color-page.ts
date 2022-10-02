@@ -27,7 +27,8 @@ function buildColorSection(
   format: ColorFormat,
   colors: Color[],
   uncategorized: boolean,
-  primaryAction: "copy-name" | "copy-code"
+  primaryAction: "copy-name" | "copy-code",
+  prefix: string = ""
 ) {
   if (colors.length === 0) return;
   return html`<div>
@@ -43,6 +44,7 @@ function buildColorSection(
           color="${colorCode}"
           format="${format}"
           primaryAction="${primaryAction}"
+          prefix="${prefix}"
         ></ag-color-square>`;
       })}
     </div>
@@ -60,6 +62,9 @@ export class AGColorPage extends LitElement {
 
   @property()
   format: ColorFormat;
+
+  @property()
+  prefix: string;
 
   @property()
   primaryAction: "copy-name" | "copy-code";
@@ -100,7 +105,8 @@ export class AGColorPage extends LitElement {
         this.format,
         colors,
         true,
-        this.primaryAction
+        this.primaryAction,
+        this.prefix
       ),
       ...colorGroups.map((colorGroup) =>
         buildColorSection(
@@ -108,7 +114,8 @@ export class AGColorPage extends LitElement {
           this.format,
           colorGroup.colors,
           false,
-          this.primaryAction
+          this.primaryAction,
+          this.prefix
         )
       ),
     ];

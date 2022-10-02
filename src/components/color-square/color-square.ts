@@ -6,7 +6,7 @@ import baseStyles from "../../base-style";
 
 type ColorFormat = "hex" | "rgb" | "hsl";
 
-function convertColorCode(colorCode: string, format: ColorFormat) {
+function convertColorCode(colorCode: string, format: ColorFormat): string {
   if (format === "hex") {
     return colord(colorCode).toHex().toUpperCase();
   }
@@ -19,6 +19,12 @@ function convertColorCode(colorCode: string, format: ColorFormat) {
   throw "Unsupported Color Format";
 }
 
+function convertColorName(colorName: string, prefix: string | undefined): string {
+  let name = colorName.trim().replace(/\s+/g,"-");
+  if(prefix) return `${prefix}-${name}`;
+  return name;
+}
+
 @customElement("ag-color-square")
 export class AGColorSquare extends LitElement {
   @property()
@@ -29,6 +35,9 @@ export class AGColorSquare extends LitElement {
 
   @property()
   format: ColorFormat;
+
+  @property()
+  prefix: string;
 
   @property()
   primaryAction: "copy-name" | "copy-code";
@@ -49,7 +58,7 @@ export class AGColorSquare extends LitElement {
     labelContainer.classList.add("copy-overlay");
     const copyText =
       this.primaryAction === "copy-name"
-        ? this.name
+        ? convertColorName(this.name, this.prefix)
         : convertColorCode(this.color, this.format);
 
     if (copyText) navigator.clipboard.writeText(copyText);
