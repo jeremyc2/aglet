@@ -4,6 +4,7 @@ export declare class AGColorSquare extends LitElement {
     name: string;
     color: string;
     format: ColorFormat;
+    prefix: string;
     primaryAction: "copy-name" | "copy-code";
     private labelContainerRef;
     private copyTimeout;

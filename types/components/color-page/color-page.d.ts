@@ -9,6 +9,8 @@ export declare class AGColorPage extends LitElement {
     private colorMap;
     loadColorMap(colorMap: ColorMap): void;
     format: ColorFormat;
+    prefix: string;
+    primaryAction: "copy-name" | "copy-code";
     static styles: import("lit").CSSResult[];
     render(): (import("lit").TemplateResult<1> | undefined)[];
 }

@@ -1,5 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import {ifDefined} from 'lit/directives/if-defined.js';
 import baseStyles from "../../base-style";
 
 interface Color {
@@ -27,7 +28,8 @@ function buildColorSection(
   format: ColorFormat,
   colors: Color[],
   uncategorized: boolean,
-  primaryAction: "copy-name" | "copy-code"
+  primaryAction: "copy-name" | "copy-code",
+  prefix: string | undefined
 ) {
   if (colors.length === 0) return;
   return html`<div>
@@ -43,6 +45,7 @@ function buildColorSection(
           color="${colorCode}"
           format="${format}"
           primaryAction="${primaryAction}"
+          prefix="${ifDefined(prefix)}"
         ></ag-color-square>`;
       })}
     </div>
@@ -60,6 +63,9 @@ export class AGColorPage extends LitElement {
 
   @property()
   format: ColorFormat;
+
+  @property()
+  prefix: string;
 
   @property()
   primaryAction: "copy-name" | "copy-code";
@@ -100,7 +106,8 @@ export class AGColorPage extends LitElement {
         this.format,
         colors,
         true,
-        this.primaryAction
+        this.primaryAction,
+        this.prefix
       ),
       ...colorGroups.map((colorGroup) =>
         buildColorSection(
@@ -108,7 +115,8 @@ export class AGColorPage extends LitElement {
           this.format,
           colorGroup.colors,
           false,
-          this.primaryAction
+          this.primaryAction,
+          this.prefix
         )
       ),
     ];
