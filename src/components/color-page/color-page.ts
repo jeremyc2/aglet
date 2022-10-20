@@ -1,6 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { ifDefined } from "lit/directives/if-defined.js";
 import baseStyles from "../../base-style";
 
 interface Color {
@@ -39,7 +39,9 @@ function buildColorSection(
       style="grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));"
     >
       ${colors.map(({ name: colorName, code: colorCode }) => {
-        const name = uncategorized ? colorName : `${groupName} ${colorName}`;
+        const name: string = uncategorized
+          ? colorName
+          : `${groupName} ${colorName}`;
         return html`<ag-color-square
           name="${name}"
           color="${colorCode}"
