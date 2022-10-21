@@ -2,6 +2,33 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import baseStyles from "../../base-style";
 
+/*
+    document.addEventListener("DOMContentLoaded", () => {
+      function tabClickHandler(e) {
+        const prefix = e.target.dataset.prefix;
+        const isDefault = e.target.dataset.default !== undefined;
+        const colorMap = isDefault ? defaultColors : themeColors[prefix];
+        container.prefix = prefix;
+        container.loadColorMap(colorMap);
+
+        title.textContent = e.target.textContent;
+
+        document.querySelector("header li.active").classList.remove("active");
+        e.target.classList.add("active");
+      }
+
+      const themeColors = tailwind.config.theme.extend.colors;
+
+      document.querySelectorAll("header li").forEach(tab =>
+        tab.addEventListener("click", tabClickHandler)
+      )
+
+      const { sd, ...defaultColors } = themeColors;
+
+      container.loadColorMap(defaultColors);
+    })
+*/
+
 @customElement("ag-color-site")
 export class AGColorSite extends LitElement {
   @property()
