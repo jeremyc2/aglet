@@ -60,7 +60,7 @@ export class AGColorSite extends LitElement {
     return html`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
         <ul class="flex gap-6">
           ${this.categories.map(category => {
-            return html`<li class=${classMap({ active: category === this.activeCategory })} @click="${() => this.activeCategory = category}">
+            return html`<li class=${classMap({ active: category.toLowerCase() === this.activeCategory.toLowerCase() })} @click="${() => this.activeCategory = category}">
               ${category}
             </li>`;
           })}
