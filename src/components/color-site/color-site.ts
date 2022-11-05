@@ -49,11 +49,15 @@ export class AGColorSite extends LitElement {
   ];
 
   render() {
-    if (typeof this.config.theme?.extend?.colors !== "object") return;
+    const colors = this.config.theme?.extend?.colors;
+    if (typeof colors !== "object") return;
 
-    let colorMap = this.config.theme.extend.colors[this.activeCategory];
+    let colorMap = colors[this.activeCategory.toLowerCase()];
     if (!colorMap) {
-      colorMap = this.uncategorized;
+      colorMap = JSON.parse(JSON.stringify(colors));
+      this.categories.forEach(
+        (category) => delete colorMap[category.toLowerCase()]
+      );
     }
 
     // prettier-ignore

@@ -49,7 +49,7 @@ const Gt = (i) => new jt(typeof i == "string" ? i : i + "", void 0, dt), K = (i,
  * SPDX-License-Identifier: BSD-3-Clause
  */
 var Z;
-const W = window, wt = W.trustedTypes, Xt = wt ? wt.emptyScript : "", yt = W.reactiveElementPolyfillSupport, lt = {
+const J = window, wt = J.trustedTypes, Xt = wt ? wt.emptyScript : "", yt = J.reactiveElementPolyfillSupport, lt = {
   toAttribute(i, t) {
     switch (t) {
       case Boolean:
@@ -277,16 +277,16 @@ k.finalized = !0, k.elementProperties = /* @__PURE__ */ new Map(), k.elementStyl
   mode: "open"
 }, yt == null || yt({
   ReactiveElement: k
-}), ((Z = W.reactiveElementVersions) !== null && Z !== void 0 ? Z : W.reactiveElementVersions = []).push("1.4.1");
+}), ((Z = J.reactiveElementVersions) !== null && Z !== void 0 ? Z : J.reactiveElementVersions = []).push("1.4.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
 var tt;
-const J = window, P = J.trustedTypes, $t = P ? P.createPolicy("lit-html", {
+const W = window, P = W.trustedTypes, $t = P ? P.createPolicy("lit-html", {
   createHTML: (i) => i
-}) : void 0, $ = `lit$${(Math.random() + "").slice(9)}$`, Dt = "?" + $, Zt = `<${Dt}>`, T = document, R = (i = "") => T.createComment(i), L = (i) => i === null || typeof i != "object" && typeof i != "function", Bt = Array.isArray, Qt = (i) => Bt(i) || typeof (i == null ? void 0 : i[Symbol.iterator]) == "function", O = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, _t = /-->/g, xt = />/g, A = RegExp(`>|[ 	
+}) : void 0, $ = `lit$${(Math.random() + "").slice(9)}$`, Dt = "?" + $, Zt = `<${Dt}>`, T = document, R = (i = "") => T.createComment(i), L = (i) => i === null || typeof i != "object" && typeof i != "function", Bt = Array.isArray, Qt = (i) => Bt(i) || typeof (i == null ? void 0 : i[Symbol.iterator]) == "function", M = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, _t = /-->/g, xt = />/g, A = RegExp(`>|[ 	
 \f\r](?:([^\\s"'>=/]+)([ 	
 \f\r]*=[ 	
 \f\r]*(?:[^ 	
@@ -305,14 +305,14 @@ const J = window, P = J.trustedTypes, $t = P ? P.createPolicy("lit-html", {
   return n._$AI(i), n;
 }, N = T.createTreeWalker(T, 129, null, !1), ie = (i, t) => {
   const e = i.length - 1, r = [];
-  let o, s = t === 2 ? "<svg>" : "", n = O;
+  let o, s = t === 2 ? "<svg>" : "", n = M;
   for (let a = 0; a < e; a++) {
     const l = i[a];
     let m, h, u = -1, b = 0;
     for (; b < l.length && (n.lastIndex = b, h = n.exec(l), h !== null); )
-      b = n.lastIndex, n === O ? h[1] === "!--" ? n = _t : h[1] !== void 0 ? n = xt : h[2] !== void 0 ? (Ft.test(h[2]) && (o = RegExp("</" + h[2], "g")), n = A) : h[3] !== void 0 && (n = A) : n === A ? h[0] === ">" ? (n = o != null ? o : O, u = -1) : h[1] === void 0 ? u = -2 : (u = n.lastIndex - h[2].length, m = h[1], n = h[3] === void 0 ? A : h[3] === '"' ? Ct : At) : n === Ct || n === At ? n = A : n === _t || n === xt ? n = O : (n = A, o = void 0);
+      b = n.lastIndex, n === M ? h[1] === "!--" ? n = _t : h[1] !== void 0 ? n = xt : h[2] !== void 0 ? (Ft.test(h[2]) && (o = RegExp("</" + h[2], "g")), n = A) : h[3] !== void 0 && (n = A) : n === A ? h[0] === ">" ? (n = o != null ? o : M, u = -1) : h[1] === void 0 ? u = -2 : (u = n.lastIndex - h[2].length, m = h[1], n = h[3] === void 0 ? A : h[3] === '"' ? Ct : At) : n === Ct || n === At ? n = A : n === _t || n === xt ? n = M : (n = A, o = void 0);
     const F = n === A && i[a + 1].startsWith("/>") ? " " : "";
-    s += n === O ? l + Zt : u >= 0 ? (r.push(m), l.slice(0, u) + "$lit$" + l.slice(u) + $ + F) : l + $ + (u === -2 ? (r.push(void 0), a) : F);
+    s += n === M ? l + Zt : u >= 0 ? (r.push(m), l.slice(0, u) + "$lit$" + l.slice(u) + $ + F) : l + $ + (u === -2 ? (r.push(void 0), a) : F);
   }
   const c = s + (i[e] || "<?>") + (t === 2 ? "</svg>" : "");
   if (!Array.isArray(i) || !i.hasOwnProperty("raw"))
@@ -574,8 +574,8 @@ class le {
     z(this, t);
   }
 }
-const Et = J.litHtmlPolyfillSupport;
-Et == null || Et(I, D), ((tt = J.litHtmlVersions) !== null && tt !== void 0 ? tt : J.litHtmlVersions = []).push("2.3.1");
+const Et = W.litHtmlPolyfillSupport;
+Et == null || Et(I, D), ((tt = W.litHtmlVersions) !== null && tt !== void 0 ? tt : W.litHtmlVersions = []).push("2.3.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -844,10 +844,10 @@ var me = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, w = function(i) {
 }, we = /^#([0-9a-f]{3,8})$/i, V = function(i) {
   var t = i.toString(16);
   return t.length < 2 ? "0" + t : t;
-}, Wt = function(i) {
+}, Jt = function(i) {
   var t = i.r, e = i.g, r = i.b, o = i.a, s = Math.max(t, e, r), n = s - Math.min(t, e, r), c = n ? s === t ? (e - r) / n : s === e ? 2 + (r - t) / n : 4 + (t - e) / n : 0;
   return { h: 60 * (c < 0 ? c + 6 : c), s: s ? n / s * 100 : 0, v: s / 255 * 100, a: o };
-}, Jt = function(i) {
+}, Wt = function(i) {
   var t = i.h, e = i.s, r = i.v, o = i.a;
   t = t / 360 * 6, e /= 100, r /= 100;
   var s = Math.floor(t), n = r * (1 - e), c = r * (1 - (t - s) * e), a = r * (1 - (1 - t + s) * e), l = s % 6;
@@ -857,12 +857,12 @@ var me = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, w = function(i) {
 }, Tt = function(i) {
   return { h: p(i.h), s: p(i.s), l: p(i.l), a: p(i.a, 3) };
 }, zt = function(i) {
-  return Jt((e = (t = i).s, { h: t.h, s: (e *= ((r = t.l) < 50 ? r : 100 - r) / 100) > 0 ? 2 * e / (r + e) * 100 : 0, v: r + e, a: t.a }));
+  return Wt((e = (t = i).s, { h: t.h, s: (e *= ((r = t.l) < 50 ? r : 100 - r) / 100) > 0 ? 2 * e / (r + e) * 100 : 0, v: r + e, a: t.a }));
   var t, e, r;
 }, U = function(i) {
-  return { h: (t = Wt(i)).h, s: (o = (200 - (e = t.s)) * (r = t.v) / 100) > 0 && o < 200 ? e * r / 100 / (o <= 100 ? o : 200 - o) * 100 : 0, l: o / 2, a: t.a };
+  return { h: (t = Jt(i)).h, s: (o = (200 - (e = t.s)) * (r = t.v) / 100) > 0 && o < 200 ? e * r / 100 / (o <= 100 ? o : 200 - o) * 100 : 0, l: o / 2, a: t.a };
   var t, e, r, o;
-}, ye = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, $e = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, _e = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, xe = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, Mt = { string: [[function(i) {
+}, ye = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, $e = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, _e = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, xe = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i, Ot = { string: [[function(i) {
   var t = we.exec(i);
   return t ? (i = t[1]).length <= 4 ? { r: parseInt(i[0] + i[0], 16), g: parseInt(i[1] + i[1], 16), b: parseInt(i[2] + i[2], 16), a: i.length === 4 ? p(parseInt(i[3] + i[3], 16) / 255, 2) : 1 } : i.length === 6 || i.length === 8 ? { r: parseInt(i.substr(0, 2), 16), g: parseInt(i.substr(2, 2), 16), b: parseInt(i.substr(4, 2), 16), a: i.length === 8 ? p(parseInt(i.substr(6, 2), 16) / 255, 2) : 1 } : null : null;
 }, "hex"], [function(i) {
@@ -890,8 +890,8 @@ var me = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, w = function(i) {
   var n = function(c) {
     return { h: qt(c.h), s: v(c.s, 0, 100), v: v(c.v, 0, 100), a: v(c.a) };
   }({ h: Number(t), s: Number(e), v: Number(r), a: Number(s) });
-  return Jt(n);
-}, "hsv"]] }, Ot = function(i, t) {
+  return Wt(n);
+}, "hsv"]] }, Mt = function(i, t) {
   for (var e = 0; e < t.length; e++) {
     var r = t[e][0](i);
     if (r)
@@ -899,7 +899,7 @@ var me = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, w = function(i) {
   }
   return [null, void 0];
 }, Ae = function(i) {
-  return typeof i == "string" ? Ot(i.trim(), Mt.string) : typeof i == "object" && i !== null ? Ot(i, Mt.object) : [null, void 0];
+  return typeof i == "string" ? Mt(i.trim(), Ot.string) : typeof i == "object" && i !== null ? Mt(i, Ot.object) : [null, void 0];
 }, nt = function(i, t) {
   var e = U(i);
   return { h: e.h, s: v(e.s + 100 * t, 0, 100), l: e.l, a: e.a };
@@ -934,7 +934,7 @@ var me = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) }, w = function(i) {
     return t = Tt(U(this.rgba)), e = t.h, r = t.s, o = t.l, (s = t.a) < 1 ? "hsla(" + e + ", " + r + "%, " + o + "%, " + s + ")" : "hsl(" + e + ", " + r + "%, " + o + "%)";
     var t, e, r, o, s;
   }, i.prototype.toHsv = function() {
-    return t = Wt(this.rgba), { h: p(t.h), s: p(t.s), v: p(t.v), a: p(t.a, 3) };
+    return t = Jt(this.rgba), { h: p(t.h), s: p(t.s), v: p(t.v), a: p(t.a, 3) };
     var t;
   }, i.prototype.invert = function() {
     return g({ r: 255 - (t = this.rgba).r, g: 255 - t.g, b: 255 - t.b, a: t.a });
@@ -1427,7 +1427,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 `;
-var Ce = Object.defineProperty, Se = Object.getOwnPropertyDescriptor, M = (i, t, e, r) => {
+var Ce = Object.defineProperty, Se = Object.getOwnPropertyDescriptor, O = (i, t, e, r) => {
   for (var o = r > 1 ? void 0 : r ? Se(t, e) : t, s = i.length - 1, n; s >= 0; s--)
     (n = i[s]) && (o = (r ? n(t, e, o) : n(o)) || o);
   return r && o && Ce(t, e, o), o;
@@ -1527,12 +1527,12 @@ x.styles = [vt, K`.relative {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
 `];
-M([f()], x.prototype, "name", 2);
-M([f()], x.prototype, "color", 2);
-M([f()], x.prototype, "format", 2);
-M([f()], x.prototype, "prefix", 2);
-M([f()], x.prototype, "primaryAction", 2);
-x = M([ut("ag-color-square")], x);
+O([f()], x.prototype, "name", 2);
+O([f()], x.prototype, "color", 2);
+O([f()], x.prototype, "format", 2);
+O([f()], x.prototype, "prefix", 2);
+O([f()], x.prototype, "primaryAction", 2);
+x = O([ut("ag-color-square")], x);
 /**
  * @license
  * Copyright 2018 Google LLC
@@ -1687,10 +1687,10 @@ class ct extends gt {
 }
 ct.directiveName = "unsafeHTML", ct.resultType = 1;
 const ze = ft(ct);
-var Me = Object.defineProperty, Oe = Object.getOwnPropertyDescriptor, E = (i, t, e, r) => {
-  for (var o = r > 1 ? void 0 : r ? Oe(t, e) : t, s = i.length - 1, n; s >= 0; s--)
+var Oe = Object.defineProperty, Me = Object.getOwnPropertyDescriptor, E = (i, t, e, r) => {
+  for (var o = r > 1 ? void 0 : r ? Me(t, e) : t, s = i.length - 1, n; s >= 0; s--)
     (n = i[s]) && (o = (r ? n(t, e, o) : n(o)) || o);
-  return r && o && Me(t, e, o), o;
+  return r && o && Oe(t, e, o), o;
 };
 let y = class extends C {
   constructor() {
@@ -1703,16 +1703,17 @@ let y = class extends C {
     return JSON.stringify(i, null, "  ").replace(/".*?"/g, '<span style="color: #A3BE8C;">$&</span>');
   }
   render() {
-    var t, e;
-    if (typeof ((e = (t = this.config.theme) == null ? void 0 : t.extend) == null ? void 0 : e.colors) != "object")
+    var e, r;
+    const i = (r = (e = this.config.theme) == null ? void 0 : e.extend) == null ? void 0 : r.colors;
+    if (typeof i != "object")
       return;
-    let i = this.config.theme.extend.colors[this.activeCategory];
-    return i || (i = this.uncategorized), j`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
+    let t = i[this.activeCategory.toLowerCase()];
+    return t || (t = JSON.parse(JSON.stringify(i)), this.categories.forEach((o) => delete t[o.toLowerCase()])), j`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
         <ul class="flex gap-6">
-          ${this.categories.map((r) => j`<li class=${Te({
-      active: r.toLowerCase() === this.activeCategory.toLowerCase()
-    })} @click="${() => this.activeCategory = r}">
-              ${r}
+          ${this.categories.map((o) => j`<li class=${Te({
+      active: o.toLowerCase() === this.activeCategory.toLowerCase()
+    })} @click="${() => this.activeCategory = o}">
+              ${o}
             </li>`)}
         </ul>
       </header>
@@ -1754,7 +1755,7 @@ let y = class extends C {
             Copy Color Code
           </sl-radio>
         </sl-radio-group>
-        <ag-color-page .colorMap=${i} format="${this.colorFormat}" primaryAction="${this.primaryAction}"></ag-color-page>
+        <ag-color-page .colorMap=${t} format="${this.colorFormat}" primaryAction="${this.primaryAction}"></ag-color-page>
       </div>`;
   }
 };
