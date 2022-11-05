@@ -13,7 +13,7 @@ interface ColorGroup {
   colors: Color[];
 }
 
-interface ColorMap {
+export interface ColorMap {
   [name: string]:
     | {
         [colorLevel: string | number]: string;
@@ -56,12 +56,8 @@ function buildColorSection(
 
 @customElement("ag-color-page")
 export class AGColorPage extends LitElement {
-  private colorMap: ColorMap = {};
-
-  loadColorMap(colorMap: ColorMap) {
-    this.colorMap = colorMap;
-    this.requestUpdate();
-  }
+  @property({ reflect: false })
+  colorMap: ColorMap;
 
   @property()
   format: ColorFormat;

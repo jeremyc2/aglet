@@ -1,13 +1,12 @@
 import { LitElement } from "lit";
-interface ColorMap {
+export interface ColorMap {
     [name: string]: {
         [colorLevel: string | number]: string;
     } | string;
 }
 declare type ColorFormat = "hex" | "rgb" | "hsl";
 export declare class AGColorPage extends LitElement {
-    private colorMap;
-    loadColorMap(colorMap: ColorMap): void;
+    colorMap: ColorMap;
     format: ColorFormat;
     prefix: string;
     primaryAction: "copy-name" | "copy-code";

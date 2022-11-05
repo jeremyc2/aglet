@@ -3,6 +3,7 @@ import { customElement, property, state } from "lit/decorators.js";
 import baseStyles from "../../base-style";
 import { classMap } from "lit/directives/class-map.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { ColorMap } from "../color-page/color-page";
 
 @customElement("ag-color-site")
 export class AGColorSite extends LitElement {
@@ -14,6 +15,9 @@ export class AGColorSite extends LitElement {
 
   @property()
   activeCategory: string;
+
+  @property({ reflect: false })
+  uncategorized: ColorMap;
 
   @state()
   private colorFormat: "hex" | "rgb" | "hsl" = "hex";
@@ -45,6 +49,13 @@ export class AGColorSite extends LitElement {
   ];
 
   render() {
+    if (typeof this.config.theme?.extend?.colors !== "object") return;
+
+    let colorMap = this.config.theme.extend.colors[this.activeCategory];
+    if (!colorMap) {
+      colorMap = this.uncategorized;
+    }
+
     // prettier-ignore
     return html`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
         <ul class="flex gap-6">
@@ -93,7 +104,7 @@ export class AGColorSite extends LitElement {
             Copy Color Code
           </sl-radio>
         </sl-radio-group>
-        <ag-color-page format="${this.colorFormat}" primaryAction="${this.primaryAction}"></ag-color-page>
+        <ag-color-page .colorMap=${colorMap} format="${this.colorFormat}" primaryAction="${this.primaryAction}"></ag-color-page>
       </div>`;
   }
 }
