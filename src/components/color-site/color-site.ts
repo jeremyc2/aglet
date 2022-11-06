@@ -3,7 +3,11 @@ import { customElement, property, state } from "lit/decorators.js";
 import baseStyles from "../../base-style";
 import { classMap } from "lit/directives/class-map.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
-import { ColorMap } from "../color-page/color-page";
+
+interface Tab {
+  tabName: string;
+  configProperty: string
+}
 
 @customElement("ag-color-site")
 export class AGColorSite extends LitElement {
@@ -11,13 +15,10 @@ export class AGColorSite extends LitElement {
   config: any;
 
   @property()
-  categories: string[];
+  tabs: Tab[];
 
   @property()
-  activeCategory: string;
-
-  @property({ reflect: false })
-  uncategorized: ColorMap;
+  activeTab: Tab;
 
   @state()
   private colorFormat: "hex" | "rgb" | "hsl" = "hex";
@@ -29,9 +30,9 @@ export class AGColorSite extends LitElement {
     navigator.clipboard.writeText(JSON.stringify(this.config, null, "\t"));
   }
 
-  private buildJSONasHTML(object: any) {
-    let html = JSON.stringify(object, null, "  ");
-    return html.replace(/".*?"/g, `<span style="color: #A3BE8C;">$&</span>`);
+  private outputConfig() {
+    let config = JSON.stringify(this.config, null, "  ");
+    return config.replace(/".*?"/g, `<span style="color: #A3BE8C;">$&</span>`);
   }
 
   static styles = [
@@ -52,20 +53,22 @@ export class AGColorSite extends LitElement {
     const colors = this.config.theme?.extend?.colors;
     if (typeof colors !== "object") return;
 
-    let colorMap = colors[this.activeCategory.toLowerCase()];
+    const activeTab = this.activeTab ?? this.tabs[0];
+
+    let colorMap = colors[activeTab.configProperty];
     if (!colorMap) {
       colorMap = JSON.parse(JSON.stringify(colors));
-      this.categories.forEach(
-        (category) => delete colorMap[category.toLowerCase()]
+      this.tabs.forEach(
+        ({ configProperty}) => delete colorMap[configProperty]
       );
     }
 
     // prettier-ignore
     return html`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
         <ul class="flex gap-6">
-          ${this.categories.map(category => {
-            return html`<li class=${classMap({ active: category.toLowerCase() === this.activeCategory.toLowerCase() })} @click="${() => this.activeCategory = category}">
-              ${category}
+          ${this.tabs.map((tab) => {
+            return html`<li class=${classMap({ active: tab.tabName === activeTab.tabName })} @click="${() => this.activeTab = tab}">
+              ${tab.tabName}
             </li>`;
           })}
         </ul>
@@ -73,7 +76,7 @@ export class AGColorSite extends LitElement {
 
       <div class="text-neutral-800 p-10 pt-20 max-w-4xl mx-auto flex flex-col gap-4">
         <div class="text-5xl pb-3 border-b border-b-gray-300 font-semibold">
-          ${this.activeCategory}
+          ${activeTab.tabName}
         </div>
 
         <sl-details summary="Tailwind Config">
@@ -86,7 +89,7 @@ export class AGColorSite extends LitElement {
               <path fill-rule="evenodd"
                 d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z">
               </path>
-            </svg></button>${unsafeHTML(this.buildJSONasHTML(this.config))}</code></pre>
+            </svg></button>${unsafeHTML(this.outputConfig())}</code></pre>
         </sl-details>
 
         <sl-radio-group label="Color Format" name="color-format" value="hex" fieldset>

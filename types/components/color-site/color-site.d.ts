@@ -1,14 +1,16 @@
 import { LitElement } from "lit";
-import { ColorMap } from "../color-page/color-page";
+interface Tab {
+    tabName: string;
+    configProperty: string;
+}
 export declare class AGColorSite extends LitElement {
     config: any;
-    categories: string[];
-    activeCategory: string;
-    uncategorized: ColorMap;
+    tabs: Tab[];
+    activeTab: Tab;
     private colorFormat;
     private primaryAction;
     private copyConfig;
-    private buildJSONasHTML;
+    private outputConfig;
     static styles: import("lit").CSSResult[];
     render(): import("lit").TemplateResult<1> | undefined;
 }
@@ -17,3 +19,4 @@ declare global {
         "ag-color-site": AGColorSite;
     }
 }
+export {};
