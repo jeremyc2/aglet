@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aglet</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/shoelace.js"></script>
-    <script type="module" src="/src/index.ts"></script>
-    <style>
-      :root, html, body {
-        margin: 0;
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aglet</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/themes/light.css" />
+  <script type="module"
+    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/shoelace.js"></script>
+  <script type="module" src="/src/index.ts"></script>
+  <style>
+    :root,
+    html,
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <ag-color-site></ag-color-site>
+  <script>
+    const colorSite = document.querySelector('ag-color-site');
+    colorSite.config = {
+      theme: {
+        extend: {
+          colors: {
+            first: { black: "#000000", white: "#FFFFFF" },
+            two: { red: "#FF0000", white: "#FFFFFF" },
+          }
+        }
       }
-    </style>
-  </head>
-  <body>
-    <ag-color-site></ag-color-site>
-    <script>
-      const colorSite = document.querySelector('ag-color-site');
-      colorSite.config = { theme: { extend: { colors: { 
-        first: { black: "#000000", white: "#FFFFFF" },
-        two: { red: "#FF0000", white: "#FFFFFF" },
-      } } } };
-      colorSite.tabs = [
-        { tabName: "First", configProperty: "first" },
-        { tabName: "Second", configProperty: "two" }
-      ];
-    </script>
-  </body>
+    };
+    colorSite.tabs = [
+      { tabName: "First", configProperty: "first" },
+      { tabName: "Second", configProperty: "two" }
+    ];
+    colorSite.prefix = "heljkl";
+  </script>
+</body>
+
 </html>
