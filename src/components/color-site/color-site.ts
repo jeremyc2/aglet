@@ -6,7 +6,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
 interface Tab {
   tabName: string;
-  configProperty: string
+  configProperty: string;
 }
 
 @customElement("ag-color-site")
@@ -55,12 +55,16 @@ export class AGColorSite extends LitElement {
 
     const activeTab = this.activeTab ?? this.tabs[0];
 
+    let prefix = "";
     let colorMap = colors[activeTab.configProperty];
+
     if (!colorMap) {
       colorMap = JSON.parse(JSON.stringify(colors));
       this.tabs.forEach(
-        ({ configProperty}) => delete colorMap[configProperty]
+        ({ configProperty }) => delete colorMap[configProperty]
       );
+    } else {
+      prefix = activeTab.configProperty;
     }
 
     // prettier-ignore
@@ -111,7 +115,7 @@ export class AGColorSite extends LitElement {
             Copy Color Code
           </sl-radio>
         </sl-radio-group>
-        <ag-color-page .colorMap=${colorMap} format="${this.colorFormat}" primaryAction="${this.primaryAction}"></ag-color-page>
+        <ag-color-page .colorMap=${colorMap} format="${this.colorFormat}" primaryAction="${this.primaryAction}" prefix="${prefix}"></ag-color-page>
       </div>`;
   }
 }
