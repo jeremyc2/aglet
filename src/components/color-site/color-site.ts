@@ -15,7 +15,7 @@ export class AGColorSite extends LitElement {
   config: any;
 
   @property()
-  prefix: string;
+  namePrefix: string;
 
   @property()
   tabs: Tab[];
@@ -66,9 +66,11 @@ export class AGColorSite extends LitElement {
       this.tabs.forEach(
         ({ configProperty }) => delete colorMap[configProperty]
       );
-      prefix = this.prefix;
+      prefix = this.namePrefix ?? "";
     } else {
-      prefix = `${this.prefix}-${activeTab.configProperty}`;
+      prefix = this.namePrefix
+        ? `${this.namePrefix}-${activeTab.configProperty}`
+        : activeTab.configProperty;
     }
 
     // prettier-ignore

@@ -1703,20 +1703,20 @@ let w = class extends S {
     return JSON.stringify(this.config, null, "  ").replace(/".*?"/g, '<span style="color: #A3BE8C;">$&</span>');
   }
   render() {
-    var o, s, n;
+    var o, s, n, l;
     const i = (s = (o = this.config.theme) == null ? void 0 : o.extend) == null ? void 0 : s.colors;
     if (typeof i != "object")
       return;
     const t = (n = this.activeTab) != null ? n : this.tabs[0];
     let e, r = i[t.configProperty];
-    return r ? e = `${this.prefix}-${t.configProperty}` : (r = JSON.parse(JSON.stringify(i)), this.tabs.forEach(({
-      configProperty: l
-    }) => delete r[l]), e = this.prefix), I`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
+    return r ? e = this.namePrefix ? `${this.namePrefix}-${t.configProperty}` : t.configProperty : (r = JSON.parse(JSON.stringify(i)), this.tabs.forEach(({
+      configProperty: a
+    }) => delete r[a]), e = (l = this.namePrefix) != null ? l : ""), I`<header class="fixed px-5 bg-neutral-800 text-white w-full z-10">
         <ul class="flex gap-6">
-          ${this.tabs.map((l) => I`<li class=${Te({
-      active: l.tabName === t.tabName
-    })} @click="${() => this.activeTab = l}">
-              ${l.tabName}
+          ${this.tabs.map((a) => I`<li class=${Te({
+      active: a.tabName === t.tabName
+    })} @click="${() => this.activeTab = a}">
+              ${a.tabName}
             </li>`)}
         </ul>
       </header>
@@ -1884,7 +1884,7 @@ w.styles = [vt, K`.fixed {
 }
 `];
 E([f()], w.prototype, "config", 2);
-E([f()], w.prototype, "prefix", 2);
+E([f()], w.prototype, "namePrefix", 2);
 E([f()], w.prototype, "tabs", 2);
 E([f()], w.prototype, "activeTab", 2);
 E([Yt()], w.prototype, "colorFormat", 2);

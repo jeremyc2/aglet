@@ -5,7 +5,7 @@ interface Tab {
 }
 export declare class AGColorSite extends LitElement {
     config: any;
-    prefix: string;
+    namePrefix: string;
     tabs: Tab[];
     activeTab: Tab;
     private colorFormat;
